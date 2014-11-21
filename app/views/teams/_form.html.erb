@@ -1,0 +1,39 @@
+<div class="border-form-div">
+<%= form_for(team) do |f| %>
+  <% if team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :section %><br>
+    <%= f.text_field :section %>
+  </div>
+
+  <div class="field">
+    <%= f.label :coach %><br>
+    <%= f.text_field :coach %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cell %><br>
+    <%= f.text_field :cell %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

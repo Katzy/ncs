@@ -1,0 +1,27 @@
+
+
+  <table class="table table-condensed table-bordered">
+    <thead>
+      <tr>
+        <th class="col-md-1">Team Name</th>
+        <th class="col-md-1">Section</th>
+        <th class="col-md-1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.name %></td>
+          <td><%= team.section %></td>
+          <td><%= link_to 'Edit', edit_team_path(team)%>
+          <%= link_to 'View Team', team_path(team)%>
+          <%= link_to 'Delete', team, method: "delete", :data => {:confirm => 'Are you sure?'} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-default"><%= link_to 'Add Team', new_team_path %></button>
+
+
