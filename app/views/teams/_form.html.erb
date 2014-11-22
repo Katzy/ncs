@@ -1,39 +1,44 @@
-<div class="border-form-div">
-<%= form_for(team) do |f| %>
-  <% if team.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this team from being saved:</h2>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+  <%= form_for(@team, remote: remote, html: { role: :form, 'data-model' => 'team'}) do |f| %>
+    <% if @team.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
 
-      <ul>
-      <% team.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @team.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, class: 'control-label' %><br>
+      <%= f.text_field :name, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="field">
+      <%= f.label :section, class: 'control-label' %><br>
+      <%= f.text_field :section, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="field">
+      <%= f.label :coach, class: 'control-label' %><br>
+      <%= f.text_field :coach, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="field">
+      <%= f.label :cell, class: 'control-label' %><br>
+      <%= f.text_field :cell, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Submit', class: 'btn btn-default' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :section %><br>
-    <%= f.text_field :section %>
-  </div>
-
-  <div class="field">
-    <%= f.label :coach %><br>
-    <%= f.text_field :coach %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cell %><br>
-    <%= f.text_field :cell %>
-  </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
 </div>

@@ -5,26 +5,44 @@
       <tr>
         <th class="col-md-1">Team Name</th>
         <th class="col-md-1">Section</th>
-        <th class="col-md-1"></th>
+        <th class="col-md-1">Section</th>
+        <th class="col-md-1">Section</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% @teams.each do |team| %>
-        <tr>
-          <td><%= team.name %></td>
-          <td><%= team.section %></td>
-          <td><%= link_to 'View Team', team_path(team)%>
-          <% if current_user.admin? %>
-            <%= link_to 'Edit', edit_team_path(team)%>
-            <%= link_to 'Delete', team, method: "delete", :data => {:confirm => 'Are you sure?'} %>
-          <% end %>
-          </td>
-        </tr>
+        <% render partial: 'shared/table_row', locals: { team: team } %>
       <% end %>
     </tbody>
   </table>
+
+<div class="team">
   <% if current_user.admin? %>
-    <button type="button" class="btn btn-default"><%= link_to 'Add Team', new_team_path %></button>
+    <button type="button" class="btn btn-default"><%= link_to 'Add Team', '#new_team_modal', 'data-toggle' => 'modal' %></button>
+
+    <div class="modal fade" id="new_team_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Create new team</h4>
+          </div>
+          <div class="modal-body">
+            <%# Render the new person form (passing modal => true to enable remote => true) %>
+            <%= render 'form', modal: true %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
+</div>
+
+
 
 

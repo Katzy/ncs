@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.order('name ASC')
+    @team = Team.new
   end
 
   def new
@@ -9,13 +10,21 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
-    p params
-    if @team.persisted?
-      flash[:notice] = "You just created a team.  Great work!"
-      redirect_to teams_path(@team)
-    else
-      render :new
+
+    @team = Team.new(team_params)
+
+    respond_to do |format|
+      if @team.save
+        format.html { redirect_to @pteam, notice: 'team was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @team }
+        # added:
+        format.js   { render action: 'show', status: :created, location: @team }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
+        # added:
+        format.js   { render json: @team.errors, status: :unprocessable_entity }
+      end
     end
   end
 
