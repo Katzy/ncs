@@ -17,6 +17,8 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 
 gem 'turbolinks'
+
+gem 'quiet_assets', group: :development
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'sdoc', '~> 0.4.0',          group: :doc

@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up)
   end
 
+  def admin?
+    admin
+  end
+
   def require_admin!
     unless user_signed_in? && current_user.admin?
       redirect_to root_url, alert: "You do not have permission!"

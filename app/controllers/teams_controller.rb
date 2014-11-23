@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-    @teams = Team.order('name ASC')
+    @teams = Team.all
     @team = Team.new
   end
 
