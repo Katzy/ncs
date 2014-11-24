@@ -1,0 +1,29 @@
+<table class="table table-condensed table-bordered">
+  <thead>
+    <%= @team.name %>
+    <tr>
+      <th>First</th>
+      <th>Last</th>
+      <th>Wt</th>
+      <th>YR</th>
+      <th>W</th>
+      <th>L</th>
+      <th>SEC PL</th>
+      <th>ST PL</th>
+      <th>T1</th>
+      <th>T2</th>
+      <th>T3</th>
+      <th>T4</th>
+      <th>T5</th>
+      <th>T6</th>
+      <th>T7</th>
+      <th>T8</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wrestlers.each do |wrestler| %>
+      <%= render partial: '/teams/table_row', locals: { wrestler: wrestler } %>
+    <% end %>
+  </tbody>
+</table>
+

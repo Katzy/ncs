@@ -4,5 +4,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
 
-  resources :teams
+  resources :teams do
+    resources :wrestlers, only: [:index, :new, :create], controller: "teams/wrestlers"
+  end
+
+  resources :wrestlers, only: [:edit, :update, :show]
+
+  controller :wrestlers do
+    delete '/wrestlers/:id',      action: 'destroy'
+  end
+
 end

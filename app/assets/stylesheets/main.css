@@ -62,11 +62,12 @@ div.teams {
 
 }
 
-.team  {
+.team {
 
   max-width: 300px;
-  padding: 19px 29px 29px;
-  margin: 0 auto 20px;
+  padding: 39px 99px 59px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #fff;
 
 }

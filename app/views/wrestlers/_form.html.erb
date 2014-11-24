@@ -1,0 +1,116 @@
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+  <%= form_for([@team, @wrestler], remote: remote, html: { role: :form, 'data-model' => 'wrestler'}) do |f| %>
+    <% if @wrestler.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@wrestler.errors.count, "error") %> prohibited this wrestler from being saved:</h2>
+
+        <ul>
+        <% @wrestler.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :first_name, class: 'control-label' %><br>
+      <%= f.text_field :first_name, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name, class: 'control-label' %><br>
+      <%= f.text_field :last_name, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :weight, class: 'control-label' %><br>
+      <%= f.text_field :weight, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :grade, class: 'control-label' %><br>
+      <%= f.text_field :grade, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :wins, class: 'control-label' %><br>
+      <%= f.text_field :wins, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :losses, class: 'control-label' %><br>
+      <%= f.text_field :losses, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :section_place, class: 'control-label' %><br>
+      <%= f.text_field :section_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :state_place, class: 'control-label' %><br>
+      <%= f.text_field :state_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney1_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney1_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney2_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney2_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney3_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney3_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney4_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney4_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney5_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney5_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney6_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney6_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney7_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney7_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tourney8_place, class: 'control-label' %><br>
+      <%= f.text_field :tourney8_place, class: 'form-control' %>
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'Submit', class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

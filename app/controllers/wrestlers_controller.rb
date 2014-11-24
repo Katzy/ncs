@@ -1,0 +1,58 @@
+class WrestlersController < ApplicationController
+
+  def new
+    @wrestler = Wrestler.new
+  end
+
+  def create
+    @team = Team.find(params[:team_id])
+    @wrestler = @team.wrestlers.new(wrestler_params)
+
+    respond_to do |format|
+      if @wrestler.save
+        format.html { redirect_to @wrestler, notice: 'wrestler was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @wrestler }
+        # added:
+        format.js   { render action: 'show', status: :created, location: @wrestler }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @wrestler.errors, status: :unprocessable_entity }
+        # added:
+        format.js   { render json: @wrestler.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+    @wrestler = Wrestler.find(params[:id])
+  end
+
+  def show
+    @teams = Team.order('name ASC')
+    @wrestler = Wrestler.find(params[:id])
+  end
+
+  def update
+    @wrestlers = Wrestler.order('weight ASC')
+    @wrestler = Wrestler.find(params[:id])
+
+    if @wrestler.update(wrestler_params)
+      redirect_to '/wrestlers'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @wrestler = wrestler.find_by_id(params[:id])
+    @wrestler.destroy
+    redirect_to wrestlers_path
+  end
+
+  private
+
+  def wrestler_params
+    params.require(:wrestler).permit(:first_name, :last_name, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :team_id)
+  end
+
+end
