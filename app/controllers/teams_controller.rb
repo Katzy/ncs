@@ -2,8 +2,13 @@ class TeamsController < ApplicationController
   respond_to  :html, :js
 
   def index
-    @teams = Team.order('name ASC')
     @team = Team.new
+    teams = Team.order('name ASC')
+    respond_to do |format|
+      format.html
+      format.csv { send_data teams.to_csv }
+      format.xls { send_data teams.to_csv(col_sep: "\t")}
+    end
   end
 
   def new

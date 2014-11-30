@@ -1,4 +1,4 @@
-<table class="table table-condensed table-bordered">
+<table class="table table-responsive table-bordered">
     <thead>
       <tr>
         <th>First name</th>
@@ -17,10 +17,13 @@
         <th>T6</th>
         <th>T7</th>
         <th>T8</th>
+        <th class="col-md-1"></th>
+        <th class="col-md-1"></th>
+        <th class="col-md-1"></th>
       </tr>
     </thead>
     <tbody>
-      <% @team.wrestlers.each do |wrestler| %>
+      <% @wrestlers.each do |wrestler| %>
         <%= render partial: '/shared/table_row', locals: { wrestler: wrestler } %>
       <% end %>
     </tbody>

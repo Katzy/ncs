@@ -1,16 +1,18 @@
 class WrestlersController < ApplicationController
+  respond_to  :html, :js
 
   def new
-    @wrestler = Wrestler.new
+    @team = Team.find(params[:id])
+    @wrestler = @team.wrestlers.new
   end
 
   def create
-    @team = Team.find(params[:team_id])
-    @wrestler = @team.wrestlers.new(wrestler_params)
+    team = Team.find(params[:team_id])
+    @wrestler = team.wrestlers.create(wrestler_params)
 
     respond_to do |format|
       if @wrestler.save
-        format.html { redirect_to @wrestler, notice: 'wrestler was successfully created.' }
+        format.html { redirect_to team_path, notice: 'wrestler was successfully created.' }
         format.json { render action: 'show', status: :created, location: @wrestler }
         # added:
         format.js   { render action: 'show', status: :created, location: @wrestler }
@@ -28,7 +30,6 @@ class WrestlersController < ApplicationController
   end
 
   def show
-    @teams = Team.order('name ASC')
     @wrestler = Wrestler.find(params[:id])
   end
 
@@ -44,9 +45,9 @@ class WrestlersController < ApplicationController
   end
 
   def destroy
-    @wrestler = wrestler.find_by_id(params[:id])
+    @wrestler = Wrestler.find(params[:id])
     @wrestler.destroy
-    redirect_to wrestlers_path
+    redirect_to :back
   end
 
   private

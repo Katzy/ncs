@@ -1,4 +1,7 @@
-class UsersController < Devise::RegistrationsController
-  before_action { puts "HELLO FRIENDS" }
+class UsersController < ApplicationController
+
+  def index
+  end
+
 
 end

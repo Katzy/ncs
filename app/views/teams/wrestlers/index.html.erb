@@ -1,6 +1,8 @@
 <table class="table table-condensed table-bordered">
   <thead>
-    <%= @team.name %>
+    <div class="team-name">
+      <h1><%= @team.name %></h1>
+    </div>
     <tr>
       <th>First</th>
       <th>Last</th>
@@ -8,8 +10,8 @@
       <th>YR</th>
       <th>W</th>
       <th>L</th>
-      <th>SEC PL</th>
-      <th>ST PL</th>
+      <th>SEC</th>
+      <th>ST</th>
       <th>T1</th>
       <th>T2</th>
       <th>T3</th>
@@ -18,12 +20,34 @@
       <th>T6</th>
       <th>T7</th>
       <th>T8</th>
+      <th class="col-md-0"></th>
+      <th class="col-md-0"></th>
+      <th class="col-md-0"></th>
     </tr>
   </thead>
   <tbody>
     <% @wrestlers.each do |wrestler| %>
-      <%= render partial: '/teams/table_row', locals: { wrestler: wrestler } %>
+      <%= render partial: '/teams/wrestlers/table_row', locals: { wrestler: wrestler } %>
     <% end %>
   </tbody>
 </table>
 
+<div class="add_wrestler_button">
+  <button type="button" class="btn btn-default"><%= link_to 'Add Wrestler', '#new_team_wrestler_modal', 'data-toggle' => 'modal' %></button>
+</div>
+<div class="modal fade" id="new_team_wrestler_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add Wrestler</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

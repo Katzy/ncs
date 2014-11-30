@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users' }
+  devise_for :users
   root 'welcome#index'
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index]
 
   resources :teams do
-    resources :wrestlers, only: [:index, :new, :create], controller: "teams/wrestlers"
+    resources :wrestlers, controller: "teams/wrestlers"
   end
 
-  resources :wrestlers, only: [:edit, :update, :show]
+  resources :wrestlers, only: [:show, :edit]
 
   controller :wrestlers do
     delete '/wrestlers/:id',      action: 'destroy'

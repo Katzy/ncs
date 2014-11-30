@@ -5,7 +5,6 @@
     margin-right: auto;
 }
 
-
 ul.nav {
 
   float: top-right;
@@ -98,10 +97,37 @@ div.teams {
 
 }
 
+.team-name {
+
+  text-align: center;
+
+
+}
+
+.team-name  {
+
+  float: center;
+  text-align: center;
+
+
+}
+
+.add_wrestler_button {
+
+  margin-top: 25px;
+  text-align: center;
+
+}
 .navbar-header img {
 
   max-height: 50px;
   padding-bottom: 12px;
+
+}
+
+.float .button {
+
+  padding-right: 20px;
 
 }
 /* User sign in and sign forms. */
@@ -129,4 +155,25 @@ div.teams {
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+}
+
+body, html {
+
+width: 100%;
+
+}
+
+
+
+.watermark-container .watermark {
+   opacity: 0.2;
+    color: BLACK;
+    position: fixed;
+    bottom: 250px;
+    right: 420px;
+    text-align: center;
+    z-index:99;
+
+
+
 }
