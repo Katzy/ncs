@@ -177,21 +177,22 @@ width: 100%;
 
 }
 
-nav {
+#nav {
 
-  display: block;
-  overflow: none;
+  text-align: justify;
+  min-width: 500px;
 
 }
 
-nav a {
+#nav:after {
 
-  float: left;
-  text-align: center;
-  width: 12.5%;
+  content: '';
+  display: inline-block;
+  width: 100%;
+
 }
 
-#nav li {
+#nav a {
 
   display: inline-block;
 
