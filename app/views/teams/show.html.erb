@@ -1,9 +1,18 @@
-<div class="table">
-<tr>
-  <td><%= @team.name %></td><br>
-  <td><%= @team.coach %></td><br>
-  <td><%= @team.section %></td><br>
-  <td><%= @team.cell %></td><br>
-  <td><button type="button" class="btn btn-default"><%= link_to 'View Roster', team_wrestlers_path(@team) %></button></td>
-</tr>
-</div>
+
+ <table class="table table-condensed table-bordered">
+    <thead>
+      <tr>
+        <th class="col-md-1">Team Name</th>
+        <th class="col-md-1">Section</th>
+        <th class="col-md-1">Coach</th>
+        <th class="col-md-1">Cell</th>
+        <th class="col-md-1"></th>
+        <th class="col-md-1"></th>
+        <th class="col-md-1"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+        <%= render partial: '/shared/table_row', locals: { team: @team } %>
+    </tbody>
+  </table>

@@ -48,7 +48,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 
     if @team.update(team_params)
-      redirect_to '/teams'
+      redirect_to team_path
     else
       render :edit
     end

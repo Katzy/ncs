@@ -4,8 +4,14 @@ module Teams
     def index
       @teams = Team.order('name ASC')
       @team = Team.find(params[:team_id])
+      wrestlers = @team.wrestlers.order('weight ASC')
       @wrestlers = @team.wrestlers.order('weight ASC')
       @wrestler = @team.wrestlers.new
+      respond_to do |format|
+      format.html
+      format.csv { send_data wrestlers.to_csv }
+      format.xls { send_data wrestlers.to_csv(col_sep: "\t")}
+    end
     end
 
     def new
@@ -34,7 +40,8 @@ module Teams
     end
 
     def edit
-      @wrestler = Wrestler.find(params[:id])
+      @team = Team.find(params[:team_id])
+      @wrestler = @team.wrestlers.find(params[:id])
     end
 
     def show
@@ -48,7 +55,7 @@ module Teams
       @wrestler = Wrestler.find(params[:id])
 
       if @wrestler.update(wrestler_params)
-        redirect_to '/teams'
+        redirect_to teams_path
       else
         render :edit
       end
@@ -64,7 +71,7 @@ module Teams
     private
 
     def wrestler_params
-    params.require(:wrestler).permit(:first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :team_id)
+    params.require(:wrestler).permit(:first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :team_id)
     end
   end
 end

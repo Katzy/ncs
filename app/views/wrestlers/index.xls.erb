@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <table>
+      <Row>
+        <Cell><Data ss:Type="String">First</Data></Cell>
+        <Cell><Data ss:Type="String">Last</Data></Cell>
+        <Cell><Data ss:Type="String">Weight</Data></Cell>
+        <Cell><Data ss:Type="String">Year</Data></Cell>
+        <Cell><Data ss:Type="String">W</Data></Cell>
+        <Cell><Data ss:Type="String">L</Data></Cell>
+        <Cell><Data ss:Type="String">Sec Pl</Data></Cell>
+        <Cell><Data ss:Type="String">State Pl</Data></Cell>
+        <Cell><Data ss:Type="String">T1</Data></Cell>
+        <Cell><Data ss:Type="String">T2</Data></Cell>
+        <Cell><Data ss:Type="String">T3</Data></Cell>
+        <Cell><Data ss:Type="String">T4</Data></Cell>
+        <Cell><Data ss:Type="String">T5</Data></Cell>
+        <Cell><Data ss:Type="String">T6</Data></Cell>
+        <Cell><Data ss:Type="String">T7</Data></Cell>
+        <Cell><Data ss:Type="String">T8</Data></Cell>
+        <Cell><Data ss:Type="String">Notes</Data></Cell>
+      </Row>
+      <% @wrestlers.each do |wrestler| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= wrestler.first %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.last %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.weight %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.grade %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.wins %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.losses %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.section_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.state_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney1_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney2_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney3_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney4_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney5_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney6_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney7_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.tourney8_place %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= wrestler.notes %></Data></Cell>
+        </Row>
+      <% end %>
+    </table>
+  </Worksheet>
+</Workbook>

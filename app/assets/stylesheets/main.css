@@ -169,7 +169,34 @@ width: 100%;
 
 }
 
+.information {
+  color: BLACK;
+  font-size: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 
+}
+
+#nav {
+
+  text-align: justify;
+  min-width: 500px;
+
+}
+
+#nav:after {
+
+  content: '';
+  display: inline-block;
+  width: 100%;
+
+}
+
+#nav li {
+
+  display: inline-block;
+
+}
 
 .watermark-container .watermark {
    opacity: 0.2;

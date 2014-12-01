@@ -1,5 +1,16 @@
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="container">
-    About   Teams Entered   Entry Information   Map to MSJ   2014 Place Winners  Hotel   Full Results and Brackets Prior Years    Champions by weight class 1990-2013
+    <div class="row">
+    <ul id="nav">
+      <li><%= link_to "About", information_about_path %></li>
+      <li><%= link_to "Teams Entered", information_teams_path %></li>
+      <li><%= link_to "Entry Information", information_entry_information_path %></li>
+      <li><%= link_to "Map to MSJ", information_map_to_msj_path %></li>
+      <li><%= link_to "2014 Place Winners", information_place_winners_2014_path %></li>
+      <li><%= link_to "Hotel Info", information_hotels_path %></li>
+      <li><%= link_to "Full Results & Brackets - Prior Years", information_results_prior_years_path %></li>
+      <li><%= link_to "Champions by weight class 1990-2013", information_champions_1990_to_2013_path %></li>
+    </ul>
+    </div>
   </div>
 </nav>

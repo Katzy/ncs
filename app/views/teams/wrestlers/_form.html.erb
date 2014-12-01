@@ -15,99 +15,107 @@
 
   <div class="row">
       <div class="form-group">
+        <%= f.label :first, class: 'col-sm-3 control-label' %>
         <div class="col-sm-3">
           <%= f.text_field :first_name, class: 'form-control' %>
-
         </div>
-
-        <%= f.label :last_name, class: 'col-sm-3 control-label' %>
+        <%= f.label :last, class: 'col-sm-3 control-label' %>
         <div class="col-sm-3">
-        <%= f.text_field :last_name, class: 'form-control' %>
+          <%= f.text_field :last_name, class: 'form-control' %><br>
         </div>
       </div>
     </div>
 
+  <div class="row">
     <div class="form-group">
-      <%= f.label :weight, class: 'control-label' %><br>
-      <%= f.text_field :weight, class: 'form-control' %>
-      <span class="help-block"></span>
+      <%= f.label :weight, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-3">
+        <%= f.text_field :weight, class: 'form-control' %>
+      </div>
+      <%= f.label :grade, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-3">
+        <%= f.text_field :grade, class: 'form-control' %><br>
+      </div>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :wins, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-3">
+        <%= f.text_field :wins, class: 'form-control' %>
+      </div>
+      <%= f.label :losses, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-3">
+        <%= f.text_field :losses, class: 'form-control' %><br>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :section_place, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-3">
+        <%= f.text_field :section_place, class: 'form-control' %>
+      </div>
+      <%= f.label :state_place, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-3">
+        <%= f.text_field :state_place, class: 'form-control' %><br>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :t1_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney1_place, class: 'form-control' %>
+      </div>
+      <%= f.label :t2_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney2_place, class: 'form-control' %>
+      </div>
+      <%= f.label :t3_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney3_place, class: 'form-control' %><br>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :t4_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney4_place, class: 'form-control' %>
+      </div>
+      <%= f.label :t5_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney5_place, class: 'form-control' %>
+      </div>
+      <%= f.label :t6_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney6_place, class: 'form-control' %><br>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :t7_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney7_place, class: 'form-control' %>
+      </div>
+      <%= f.label :t8_place, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-2">
+        <%= f.text_field :tourney8_place, class: 'form-control' %><br>
+      </div>
+    </div>
+  </div>
+
 
     <div class="form-group">
-      <%= f.label :grade, class: 'control-label' %><br>
-      <%= f.text_field :grade, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :wins, class: 'control-label' %><br>
-      <%= f.text_field :wins, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :losses, class: 'control-label' %><br>
-      <%= f.text_field :losses, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :section_place, class: 'control-label' %><br>
-      <%= f.text_field :section_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :state_place, class: 'control-label' %><br>
-      <%= f.text_field :state_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney1_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney1_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney2_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney2_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney3_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney3_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney4_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney4_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney5_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney5_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney6_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney6_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney7_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney7_place, class: 'form-control' %>
-      <span class="help-block"></span>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :tourney8_place, class: 'control-label' %><br>
-      <%= f.text_field :tourney8_place, class: 'form-control' %>
+      <%= f.label :notable_wins, class: 'control-label' %><br>
+      <%= f.text_area :comments, class: 'form-control' %>
       <span class="help-block"></span>
     </div>
 

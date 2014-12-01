@@ -1,3 +1,10 @@
+<div class="team-name">
+  <p>
+    Download:
+      <%= link_to "CSV", team_wrestlers_path(format: "csv") %> |
+      <%= link_to "Excel", team_wrestlers_path(format: "xls") %>
+  </p>
+</div>
 <table class="table table-condensed table-bordered">
   <thead>
     <div class="team-name">
@@ -20,6 +27,7 @@
       <th>T6</th>
       <th>T7</th>
       <th>T8</th>
+      <th>Comments</th>
       <th class="col-md-0"></th>
       <th class="col-md-0"></th>
       <th class="col-md-0"></th>
