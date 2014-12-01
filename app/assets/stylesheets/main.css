@@ -177,19 +177,18 @@ width: 100%;
 
 }
 
-#nav {
+nav {
 
-  text-align: justify;
-  min-width: 500px;
+  display: block;
+  overflow: none;
 
 }
 
-#nav:after {
+nav a {
 
-  content: '';
-  display: inline-block;
-  width: 100%;
-
+  float: left;
+  text-align: center;
+  width: 12.5%;
 }
 
 #nav li {
