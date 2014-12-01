@@ -48,7 +48,7 @@ module Teams
       @wrestler = Wrestler.find(params[:id])
 
       if @wrestler.update(wrestler_params)
-        redirect_to '/wrestlers'
+        redirect_to '/teams'
       else
         render :edit
       end
@@ -64,7 +64,7 @@ module Teams
     private
 
     def wrestler_params
-    params.require(:wrestler).permit(:first_name, :last_name, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :team_id)
+    params.require(:wrestler).permit(:first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :team_id)
     end
   end
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :wrestlers, controller: "teams/wrestlers"
   end
 
-  resources :wrestlers, only: [:show, :edit]
+  resources :wrestlers, only: [:show, :edit, :update]
 
   controller :wrestlers do
     delete '/wrestlers/:id',      action: 'destroy'

@@ -4,5 +4,5 @@ class Wrestler < ActiveRecord::Base
 
   validates :first_name, presence: true, null: false
   validates :last_name, presence: true, null: false
-
+  validates :weight, presence: true, null: false
 end
