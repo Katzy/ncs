@@ -19,6 +19,8 @@ gem 'tzinfo-data'
 
 gem 'turbolinks'
 
+gem 'rails-12factor', group: :production
+
 gem 'quiet_assets', group: :development
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
