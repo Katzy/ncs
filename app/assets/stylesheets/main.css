@@ -169,6 +169,11 @@ width: 100%;
 
 }
 
+table {
+
+  max-width: 600px;
+
+}
 .information {
   color: BLACK;
   font-size: 20px;

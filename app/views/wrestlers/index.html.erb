@@ -1,53 +1,43 @@
-<table class="table table-responsive table-bordered">
-    <thead>
-      <tr>
-        <th>First name</th>
-        <th>Last Name</th>
-        <th>Weight</th>
-        <th>Grade</th>
-        <th>Wins</th>
-        <th>Losses</th>
-        <th>Section Place</th>
-        <th>State Place</th>
-        <th>T1</th>
-        <th>T2</th>
-        <th>T3</th>
-        <th>T4</th>
-        <th>T5</th>
-        <th>T6</th>
-        <th>T7</th>
-        <th>T8</th>
-        <th class="col-md-1"></th>
-        <th class="col-md-1"></th>
-        <th class="col-md-1"></th>
-      </tr>
-    </thead>
+<div class="team-name">
+  <h1>Teams</h1>
+
+  <p>
+    Download:
+      <%= link_to "CSV", wrestlers_path(format: "csv") %> |
+      <%= link_to "Excel", wrestlers_path(format: "xls") %>
+
+  </p>
+
+</div>
+  <table class="table table-condensed table-bordered">
+    <tr>
+      <th>School</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Wt</th>
+      <th>YR</th>
+      <th>W</th>
+      <th>L</th>
+      <th>SEC</th>
+      <th>ST</th>
+      <th>T1</th>
+      <th>T2</th>
+      <th>T3</th>
+      <th>T4</th>
+      <th>T5</th>
+      <th>T6</th>
+      <th>T7</th>
+      <th>T8</th>
+      <th>Comments</th>
+      <th class="col-md-0"></th>
+      <th class="col-md-0"></th>
+      <th class="col-md-0"></th>
+    </tr>
+  </thead>
     <tbody>
       <% @wrestlers.each do |wrestler| %>
-        <%= render partial: '/shared/table_row', locals: { wrestler: wrestler } %>
+        <%= render partial: '/teams/wrestlers/table_row', locals: { wrestler: wrestler } %>
       <% end %>
     </tbody>
   </table>
 
-<div class="team">
-  <% if current_user.admin? %>
-    <button type="button" class="btn btn-default"><%= link_to 'Add Team', '#new_wrestler_modal', 'data-toggle' => 'modal' %></button>
-
-    <div class="modal fade" id="new_wrestler_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Add Wrestler</h4>
-          </div>
-          <div class="modal-body">
-            <%= render 'form', modal: true %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>

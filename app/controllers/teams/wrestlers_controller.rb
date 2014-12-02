@@ -23,6 +23,7 @@ module Teams
     def create
       @team = Team.find(params[:team_id])
       @wrestler = @team.wrestlers.new(wrestler_params)
+      @wrestler.school = @team.name
 
       respond_to do |format|
         if @wrestler.save
@@ -71,7 +72,7 @@ module Teams
     private
 
     def wrestler_params
-    params.require(:wrestler).permit(:first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :team_id)
+    params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :team_id)
     end
   end
 end

@@ -1,6 +1,10 @@
 class WrestlersController < ApplicationController
   respond_to  :html, :js
 
+  def index
+    @wrestlers = Wrestler.order('weight ASC')
+  end
+
   def new
     @team = Team.find(params[:id])
     @wrestler = @team.wrestlers.new
@@ -26,7 +30,7 @@ class WrestlersController < ApplicationController
   end
 
   def edit
-    @team = Team.find(params[:id])
+    @team = Team.find_by_id(params[:team_id])
     @wrestler = Wrestler.find(params[:id])
   end
 
@@ -36,9 +40,9 @@ class WrestlersController < ApplicationController
 
   def update
     @wrestler = Wrestler.find(params[:id])
-    @team = Team.find(params[:team_id])
+    @team = Team.find_by_id(params[:team_id])
     if @wrestler.update(wrestler_params)
-      redirect_to teams_path
+      redirect_to wrestlers_path
     else
       render :edit
     end
