@@ -19,7 +19,6 @@ gem 'tzinfo-data'
 
 gem 'turbolinks'
 
-gem 'rails-12factor', group: :production
 
 gem 'quiet_assets', group: :development
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -35,7 +34,7 @@ group :development, :test do
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'rails-12factor', group: :production
+gem 'rails_12factor', group: :production
 # Use unicorn as the app server
 # gem 'unicorn'
 
