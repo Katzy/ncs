@@ -4,18 +4,17 @@ module Teams
     def index
       @teams = Team.order('name ASC')
       @team = Team.find(params[:team_id])
-      wrestlers = @team.wrestlers.order('weight ASC')
-      @wrestlers = @team.wrestlers.order('weight ASC')
+      wrestlers = @team.wrestlers.order('weight ASC') # specifically for csv
+      @wrestlers = @team.wrestlers.order('weight ASC') # for index
       @wrestler = @team.wrestlers.new
       respond_to do |format|
-      format.html
-      format.csv { send_data wrestlers.to_csv }
-      format.xls { send_data wrestlers.to_csv(col_sep: "\t")}
-    end
+        format.html
+        format.csv { send_data wrestlers.to_csv }
+        format.xls { send_data wrestlers.to_csv(col_sep: "\t")}
+      end
     end
 
     def new
-      @teams = Team.order('name ASC')
       @team = Team.find(params[:team_id])
       @wrestler = @team.wrestlers.new
     end
@@ -28,9 +27,9 @@ module Teams
       respond_to do |format|
         if @wrestler.save
           format.html { redirect_to team_wrestlers_path, notice: 'wrestler was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @wrestler }
+          format.json { render action: 'index', status: :created, location: @wrestler }
           # added:
-          format.js   { render action: 'show', status: :created, location: @wrestler }
+          format.js   { render action: 'index', status: :created, location: @wrestler }
         else
           format.html { render action: 'new' }
           format.json { render json: @wrestler.errors, status: :unprocessable_entity }

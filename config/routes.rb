@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :wrestlers, controller: "teams/wrestlers"
   end
 
-  resources :wrestlers, only: [:index, :show, :edit, :update]
+  resources :wrestlers, only: [:index, :edit, :show, :update]
 
   controller :wrestlers do
     delete '/wrestlers/:id',      action: 'destroy'

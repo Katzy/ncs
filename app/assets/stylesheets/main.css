@@ -95,6 +95,12 @@ div.teams {
 
 }
 
+body {
+
+  padding-top: 120px;
+  padding-bottom: 50px;
+
+}
 .container li {
 
   padding-top: 0;

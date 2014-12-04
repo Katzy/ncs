@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $(document).bind('ajaxError', 'form#new_wrestler', function(event, jqxhr, settings, exception){
+  $(document).bind('ajaxError', 'form#new_team_wrestler', function(event, jqxhr, settings, exception){
 
     // note: jqxhr.responseJSON undefined, parsing responseText instead
     $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );

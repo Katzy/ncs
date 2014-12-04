@@ -3,7 +3,7 @@ class Team < ActiveRecord::Base
   has_many :users
   has_many :wrestlers
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :section, presence: true
 
   def self.to_csv(options = {})
