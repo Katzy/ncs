@@ -52,6 +52,10 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find_by_id(params[:id])
+    @wrestlers = @team.wrestlers.all
+    @wrestlers.each do |wrestler|
+      wrestler.destroy
+    end
     @team.destroy
     redirect_to teams_path
   end

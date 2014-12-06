@@ -22,7 +22,10 @@ class ApplicationController < ActionController::Base
   end
 
   def initialize_teams_for_header
-     @teams = Team.order('name ASC')
+    @teams = Team.all
+    @teams.each do |team|
+      @tournaments = team.tournaments
+    end
   end
 
   def configure_permitted_parameters
