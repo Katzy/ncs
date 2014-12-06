@@ -1,0 +1,45 @@
+<div class="team-name">
+  <h1>Wrestlers</h1><br>
+  <p>
+    Sort by:
+      <%= link_to "School", wrestlers_sort_by_school_path %> |
+      <%= link_to "Weight", wrestlers_path %> |
+      <%= link_to "State Place", wrestlers_sort_by_state_place_path %>
+  </p>
+
+  <p>
+    Download:
+      <%= link_to "CSV", wrestlers_path(format: "csv") %> |
+      <%= link_to "Excel", wrestlers_path(format: "xls") %>
+
+  </p>
+
+</div>
+  <table class="table table-condensed table-bordered">
+    <tr>
+      <th>School</th>
+      <th>Wt</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>YR</th>
+      <th>W</th>
+      <th>L</th>
+      <th>SEC</th>
+      <th>ST</th>
+      <th>T1</th>
+      <th>T2</th>
+      <th>T3</th>
+      <th>T4</th>
+      <th>T5</th>
+      <th>T6</th>
+      <th>T7</th>
+      <th>T8</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+    <tbody>
+      <% @wrestlers.each do |wrestler| %>
+        <%= render partial: '/wrestlers/table_row', locals: { wrestler: wrestler } %>
+      <% end %>
+    </tbody>
+  </table>

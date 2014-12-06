@@ -28,7 +28,9 @@
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ROSTER<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
               <% @teams.each do |team| %>
-                <li><%= link_to "#{team.name}", team_wrestlers_path(team) %></li>
+                <div style="width: 300px;">
+                  <li><%= link_to "#{team.name}", team_wrestlers_path(team) %></li>
+                </div>
               <% end %>
             </ul>
           </div>

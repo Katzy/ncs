@@ -1,0 +1,43 @@
+<div class="team-name">
+  <h3><%= @team.name.upcase %></h3>
+  <h4>2014-15 TOURNAMENTS</h4><br>
+
+  <table class="table table-condensed table-bordered" id="tournaments_table">
+    <thead>
+      <tr>
+        <th>Tournament Name</th>
+        <th>Field Size</th>
+        <% if current_user.admin? %>
+        <th></th>
+        <th></th>
+      <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tournaments.each do |tournament, team| %>
+        <%= render partial: 'teams/tournaments/table_row', locals: { tournament: tournament, team: team } %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="team">
+    <button type="button" class="btn btn-default"><%= link_to 'Add Tournament', '#new_team_tournament_modal', 'data-toggle' => 'modal' %></button>
+
+    <div class="modal fade" id="new_team_tournament_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Create new tournament</h4>
+          </div>
+          <div class="modal-body">
+            <%= render 'form', modal: true %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

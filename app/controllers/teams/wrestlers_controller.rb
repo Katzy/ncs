@@ -57,7 +57,7 @@ module Teams
       @wrestler = Wrestler.find(params[:id])
 
       if @wrestler.update(wrestler_params)
-        redirect_to teams_path
+        redirect_to @wrestler.team
       else
         render :edit
       end

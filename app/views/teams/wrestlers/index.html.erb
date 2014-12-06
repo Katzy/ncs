@@ -1,12 +1,12 @@
 <div class="team-name">
-  <h4><%= @team.name %></h4>
-  <p>
+  <h3><%= @team.name.upcase %> WRESTLERS</h3>
+
     Download:
       <%= link_to "CSV", team_wrestlers_path(format: "csv") %> |
       <%= link_to "Excel", team_wrestlers_path(format: "xls") %>
   </p>
 </div>
-<table class="table table-condensed table-bordered">
+<table class="table table-condensed table-bordered" id="wrestlers_table">
   <thead>
     <tr>
       <th>School</th>

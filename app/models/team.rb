@@ -2,6 +2,7 @@ class Team < ActiveRecord::Base
 
   has_many :users
   has_many :wrestlers
+  has_many :tournaments
 
   validates :name, presence: true, uniqueness: true
   validates :section, presence: true
