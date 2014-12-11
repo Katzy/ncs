@@ -2,7 +2,6 @@ class TournamentsController < ApplicationController
 
     def index
       team = Team.find(params[:team_id])
-      @tournaments = team.tournaments
     end
 
     def new
@@ -36,7 +35,7 @@ class TournamentsController < ApplicationController
 
     def update
       team = Team.find(params[:team_id])
-      @tournament = team.tournaments.find(:id)
+      @tournament = team.tournaments.find(params[:id])
       if @tournament.update(tournament_params)
         redirect_to team_path
       else

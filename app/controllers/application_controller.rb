@@ -23,8 +23,6 @@ class ApplicationController < ActionController::Base
 
   def initialize_teams_for_header
     @teams = Team.all
-    @teams.each do |team|
-      @tournaments = team.tournaments
     end
   end
 
