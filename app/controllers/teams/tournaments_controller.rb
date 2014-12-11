@@ -4,8 +4,8 @@ module Teams
     def index
       @teams = Team.order('name ASC')
       @team = Team.find(params[:team_id])
-      @tournaments = @team.tournaments.order('name ASC')
-      @tournament = @team.tournaments.new
+      # @tournaments = @team.tournaments.order('name ASC')
+      # @tournament = @team.tournaments.new
       wrestlers = @team.wrestlers.order('weight ASC') # specifically for csv
       @wrestlers = @team.wrestlers.order('weight ASC') # for index
       @wrestler = @team.wrestlers.new
