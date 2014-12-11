@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
 
   def initialize_teams_for_header
     @teams = Team.all
-    end
   end
 
   def configure_permitted_parameters
