@@ -3,7 +3,7 @@ module Teams
 
     def index
       @teams = Team.order('name ASC')
-      @team = Team.find(params[:team_id])
+      @team = Team.find(params[:id])
       wrestlers = @team.wrestlers.order('weight ASC') # specifically for csv
       @wrestlers = @team.wrestlers.order('weight ASC') # for index
       @wrestler = @team.wrestlers.new

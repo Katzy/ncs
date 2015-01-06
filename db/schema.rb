@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206012712) do
+ActiveRecord::Schema.define(version: 20150106223517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20141206012712) do
   end
 
   add_index "tournaments", ["team_id"], name: "index_tournaments_on_team_id", using: :btree
+
+  create_table "tournaments_teams", id: false, force: true do |t|
+    t.integer "tournament_id"
+    t.integer "team_id"
+  end
+
+  add_index "tournaments_teams", ["team_id"], name: "index_tournaments_teams_on_team_id", using: :btree
+  add_index "tournaments_teams", ["tournament_id"], name: "index_tournaments_teams_on_tournament_id", using: :btree
+
+  create_table "tournaments_wrestlers", id: false, force: true do |t|
+    t.integer "tournament_id"
+    t.integer "wrestler_id"
+  end
+
+  add_index "tournaments_wrestlers", ["tournament_id"], name: "index_tournaments_wrestlers_on_tournament_id", using: :btree
+  add_index "tournaments_wrestlers", ["wrestler_id"], name: "index_tournaments_wrestlers_on_wrestler_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

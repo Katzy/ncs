@@ -41,7 +41,9 @@
 </table>
 
 <div class="add_wrestler_button">
-  <button type="button" class="btn btn-default"><%= link_to 'Add Wrestler', '#new_team_wrestler_modal', 'data-toggle' => 'modal' %></button>
+  <% if current_user.admin? %>
+    <button type="button" class="btn btn-default"><%= link_to 'Add Wrestler', '#new_team_wrestler_modal', 'data-toggle' => 'modal' %></button>
+  <% end %>
 </div>
 <div class="modal fade" id="new_team_wrestler_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
