@@ -20,10 +20,12 @@ Rails.application.routes.draw do
 
   get 'wrestlers/sort_by_state_place' => 'wrestlers#sort_by_state_place'
 
+  post 'create_user' => 'users#create', as: :create_user
+
   devise_for :users
   root 'welcome#index'
 
-  resources :users, only: [:index]
+  resources :users, except: :create
 
   resources :teams do
     resources :wrestlers, controller: "teams/wrestlers"
@@ -40,6 +42,10 @@ Rails.application.routes.draw do
 
   controller :wrestlers do
     delete '/wrestlers/:id',      action: 'destroy'
+  end
+
+  controller :users do
+    delete '/users/:id',      action: 'destroy'
   end
 
 end

@@ -6,7 +6,7 @@
   <td><%= link_to 'View Team', team_wrestlers_path(team)%></td>
   <td><%= link_to 'Tournaments', team_tournaments_path(team)%></td>
   <td><%= link_to 'Edit', edit_team_path(team)%></td>
-  <% if current_user.admin? %>
+
     <td><%= link_to 'Delete', team, method: "delete", :data => {:confirm => 'Are you sure? By deleting teams, all wrestlers associated with that team will also be deleted!'} %></td>
   <% end %>
   </td>

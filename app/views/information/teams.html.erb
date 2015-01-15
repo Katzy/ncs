@@ -1,2 +1,37 @@
-<h1>Information#teams</h1>
-<p>Find me in app/views/information/teams.html.erb</p>
+<div class="team-name">
+  <h1>Teams</h1>
+
+  <p>
+    Download:
+      <%= link_to "CSV", teams_path(format: "csv") %> |
+      <%= link_to "Excel", teams_path(format: "xls") %> |
+
+      <%= link_to 'Add Team', '#new_team_modal', 'data-toggle' => 'modal' %>
+  </p>
+</div>
+  <table class="table table-condensed table-bordered" id="teams_table">
+    <thead>
+      <tr>
+        <th class="col-md-1">Team Name</th>
+        <th class="col-md-1">Section</th>
+        <th class="col-md-1">Coach</th>
+        <% if current_user.admin? %>
+          <th class="col-md-1">Cell</th>
+        <% end %>
+        <th class="col-md-1">Roster</th>
+        <th class="col-md-1">Tournaments</th>
+        <% if current_user.admin? %>
+          <th class="col-md-1">Edit Team Info</th>
+          <th class="col-md-1">Delete</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <%= render partial: '/shared/table_row', locals: { team: team } %>
+      <% end %>
+    </tbody>
+  </table>
+
+
+

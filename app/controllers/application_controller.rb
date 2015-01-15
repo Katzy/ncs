@@ -23,10 +23,15 @@ class ApplicationController < ActionController::Base
 
   def initialize_teams_for_header
     @teams = Team.all
+    @teams = Team.order('name ASC')
   end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
+  end
+
+  def authorize_admin
+    redirect_to root_path, alert: 'Access Denied' unless current_user.admin?
   end
 
   def require_admin!

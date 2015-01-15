@@ -3,6 +3,14 @@ class InformationController < ApplicationController
   end
 
   def teams
+    redirect_to teams_path
+    # @teams = Team.all
+    # teams = Team.order('name ASC')
+    # respond_to do |format|
+    #   format.html
+    #   format.csv { send_data teams.to_csv }
+    #   format.xls { send_data teams.to_csv(col_sep: "\t")}
+    # end
   end
 
   def entry_information
