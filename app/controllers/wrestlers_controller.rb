@@ -68,7 +68,7 @@ class WrestlersController < ApplicationController
     @wrestler = Wrestler.find(params[:id])
     @team = Team.find_by_id(params[:team_id])
     if @wrestler.update(wrestler_params)
-      redirect_to @team
+      redirect_to root_url
     else
       render :edit
     end

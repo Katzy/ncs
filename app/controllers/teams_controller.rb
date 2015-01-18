@@ -44,10 +44,14 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 
     if @team.update(team_params)
-      redirect_to team_path
+      redirect_to root_url
     else
       render :edit
     end
+  end
+
+  def show
+    @team = Team.find(params[:id])
   end
 
   def destroy

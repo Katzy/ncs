@@ -2,6 +2,7 @@ module Teams
   class WrestlersController < ApplicationController
 
     def index
+      user = User.find_by_id(session[:user_id])
       @teams = Team.order('name ASC')
       @team = Team.find(params[:team_id])
       wrestlers = @team.wrestlers.order('weight ASC') # specifically for csv

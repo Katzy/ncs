@@ -1,6 +1,6 @@
 <tr>
-  <td><%= wrestler.school %></td>
   <td><%= wrestler.weight %></td>
+  <td><%= wrestler.school %></td>
   <td><%= wrestler.first_name %></td>
   <td><%= wrestler.last_name %></td>
   <td><%= wrestler.grade %></td>
@@ -16,7 +16,7 @@
   <td><%= wrestler.tourney6_place %></td>
   <td><%= wrestler.tourney7_place %></td>
   <td><%= wrestler.tourney8_place %></td>
-  <% if current_user.admin? %>
+  <% if current_user.admin? || current_user.team_id == wrestler.team_id %>
     <td><%= wrestler.comments %></td>
     <td><%= link_to 'Edit', edit_wrestler_path(wrestler) %></td>
     <td><%= link_to 'Delete', wrestler, method: "delete", :data => {:confirm => 'Are you sure?'} %></td>

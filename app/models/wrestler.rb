@@ -8,10 +8,11 @@ class Wrestler < ActiveRecord::Base
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << column_names
+      csv << ["weight", "school", "last_name", "first_name", "grade", "wins", "losses"]
       all.each do |wrestler|
-        csv << wrestler.attributes.values_at(*column_names)
+        csv << [wrestler.weight, wrestler.school, wrestler.last_name, wrestler.first_name, wrestler.grade, wrestler.wins, wrestler.losses]
       end
     end
   end
 end
+

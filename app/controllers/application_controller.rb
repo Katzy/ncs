@@ -24,6 +24,8 @@ class ApplicationController < ActionController::Base
   def initialize_teams_for_header
     @teams = Team.all
     @teams = Team.order('name ASC')
+    @user = User.find_by_id(session[:user_id])
+
   end
 
   def configure_permitted_parameters

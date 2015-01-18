@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @teams = Team.all
   end
 
   def edit
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    @teams = Team.all
      @user = User.create(user_params)
     if @user.persisted?
       redirect_to root_url, notice: "User was successfully created"
@@ -52,7 +54,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation, :team_id)
   end
 
 end
