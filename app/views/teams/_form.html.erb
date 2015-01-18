@@ -15,7 +15,11 @@
 
     <div class="form-group">
       <%= f.label :name, 'School', class: 'control-label' %><br>
-      <%= f.text_field :name, class: 'form-control' %>
+      <% if current_user.admin? %>
+        <%= f.collection_select :id, Team.order(:name), :id, :name, include_blank: true %><br>
+      <% else %>
+        <%= f.text_field :name, readonly: true, class: 'form-control' %>
+      <% end %>
       <span class="help-block"></span>
     </div>
 

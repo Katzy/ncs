@@ -19,6 +19,7 @@ gem 'tzinfo-data'
 
 gem 'turbolinks'
 
+gem 'figaro', '~> 1.0.0'
 
 gem 'quiet_assets', group: :development
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

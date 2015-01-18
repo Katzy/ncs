@@ -1,0 +1,10 @@
+<tr>
+  <td><%= team.name %></td>
+  <td><%= team.section %></td>
+  <td><%= team.coach %></td>
+  <% if current_user.admin? || current_user.team_id == @team.id  %>
+    <td><%= team.cell %></td>
+    <td><%= link_to 'Edit', edit_team_path(team)%></td>
+  <% end %>
+  </td>
+</tr>

@@ -2,6 +2,12 @@ class UsersController < ApplicationController
 
   before_filter :authorize_admin, only: :create
 
+  def home
+    @user = current_user
+    @team = Team.find(@user[:team_id])
+    @wrestlers = @team.wrestlers.order('weight ASC')
+  end
+
   def index
     @users = User.order('name Asc')
     users = User.order('name Asc')

@@ -42,9 +42,15 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
+    user = current_user
 
     if @team.update(team_params)
-      redirect_to root_url
+      UserMailer.team_updated(user).deliver
+      if current_user.admin?
+        redirect_to root_url
+      else
+        redirect_to users_home_path
+      end
     else
       render :edit
     end

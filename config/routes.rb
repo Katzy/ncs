@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get 'wrestlers/sort_by_state_place' => 'wrestlers#sort_by_state_place'
 
+  get 'users/home' => 'users#home'
+
   post 'create_user' => 'users#create', as: :create_user
 
   devise_for :users

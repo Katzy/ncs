@@ -1,0 +1,24 @@
+
+<div class="team-name">
+  <h1><%= @team.name %></h1>
+
+</div>
+  <table class="table table-condensed table-bordered" id="teams_table">
+    <thead>
+      <tr>
+        <th class="col-md-1">Team Name</th>
+        <th class="col-md-1">Section</th>
+        <th class="col-md-1">Coach</th>
+        <% if current_user.admin? || current_user.team_id == @team.id  %>
+          <th class="col-md-1">Cell</th>
+          <th class="col-md-1">Edit Team Info</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+        <%= render partial: '/users/shared/table_row', locals: { team: @team } %>
+    </tbody>
+  </table><br><br>
+
+
+

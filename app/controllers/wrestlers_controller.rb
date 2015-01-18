@@ -67,8 +67,14 @@ class WrestlersController < ApplicationController
   def update
     @wrestler = Wrestler.find(params[:id])
     @team = Team.find_by_id(params[:team_id])
+    user = current_user
     if @wrestler.update(wrestler_params)
-      redirect_to root_url
+      UserMailer.wrestler_updated(user).deliver
+      if current_user.admin?
+        redirect_to root_url
+      else
+        redirect_to users_home_path
+      end
     else
       render :edit
     end
