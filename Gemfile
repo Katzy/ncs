@@ -19,6 +19,8 @@ gem 'tzinfo-data'
 
 gem 'turbolinks'
 
+gem 'mail'
+
 gem 'figaro', '~> 1.0.0'
 
 gem 'quiet_assets', group: :development
