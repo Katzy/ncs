@@ -26,7 +26,7 @@
                 <li><%= link_to "WRESTLERS", wrestlers_path %></li>
               </ul>
             </div>
-          <% end %>
+
           <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ROSTERS<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
@@ -37,6 +37,7 @@
               <% end %>
             </ul>
           </div>
+          <% end %>
 
           <% if !current_user.admin? %>
           <div class="btn-group">
@@ -44,9 +45,8 @@
               TEAM INFO <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><%= link_to "TEAM PROFILE", users_home_path %></li>
-              <li><%= link_to "TOURNAMENTS" %></li>
-              <li><%= link_to "WRESTLERS" %></li>
+              <li><%= link_to "ENTER MY TEAM", users_home_path %></li>
+              <li><%= link_to "VIEW OTHER TEAMS" %></li>
               <li class="divider"></li>
               <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
             </ul>
