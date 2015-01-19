@@ -26,9 +26,9 @@ Rails.application.configure do
     :port => '587',
     :authentication => 'plain',
     :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD']
-    :domain => 'heroku.com'
-    :enable_starttls_auto => true,
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'heroku.com',
+    :enable_starttls_auto => true
   }
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
