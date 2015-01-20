@@ -27,11 +27,7 @@
 
     <div class="field">
       <%= f.label :school %><br>
-      <% if current_user.admin? %>
-        <%= f.text_field :school %>
-      <% else %>
-        <%= f.text_field :school, :disabled => true %>
-      <% end %>
+      <%= f.text_field :school %>
     </div>
 
     <% if current_user.admin? %>
