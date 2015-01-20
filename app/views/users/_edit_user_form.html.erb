@@ -1,6 +1,6 @@
 <div class="border-form-div">
 
-  <h2>Edit User</h2>
+  <h3>Edit Team log in & contact information</h3>
 
   <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
@@ -16,7 +16,7 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :email %><br>
+      <%= f.label :email, "Email (username)" %><br>
       <%= f.text_field :email %>
     </div>
 
@@ -27,32 +27,25 @@
 
     <div class="field">
       <%= f.label :school %><br>
-      <%= f.text_field :school %>
+      <%= f.text_field :school, :disabled => true %>
     </div>
 
+    <% if current_user.admin? %>
     <div class="field">
       <%= f.label :abbreviation %><br>
       <%= f.text_field :abbreviation %>
     </div>
 
-    <div class="field">
-      <%= f.label :section %><br>
-      <%= f.collection_select :section, ['C', 'CCS', 'LA', 'N', 'NCS', 'O', 'S', 'SD', 'SF', 'SJ', 'OTHER'], :to_s, :to_s, include_blank: true %>
-    </div><br>
+
+      <div class="field">
+        <%= f.label :section %><br>
+        <%= f.collection_select :section, ['C', 'CCS', 'LA', 'N', 'NCS', 'O', 'S', 'SD', 'SF', 'SJ', 'OTHER'], :to_s, :to_s, include_blank: true %>
+      </div><br>
+    <% end %>
 
     <div class="field">
       <%= f.label :cell, "Phone #" %><br>
       <%= f.text_field :cell %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br>
-      <%= f.password_field :password_confirmation %>
     </div>
 
     <div class="actions">

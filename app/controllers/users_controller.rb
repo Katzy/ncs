@@ -2,8 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :authorize_admin, only: :create
   before_filter :authenticate_user!, :only => [:edit, :update]
-
-  # SECTIONS = [C, CCS, LA, NCS, N, O, S, SD, SF, SJ, OTHER]
+  before_filter :skip_password_attribute, only: :update
 
   def home
     @user = current_user
@@ -66,6 +65,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def skip_password_attribute
+    if params[:password].blank? && params[:password_validation].blank?
+      params.except!(:password, :password_validation)
+    end
+  end
 
   def user_params
     params.require(:user).permit(:email, :name, :password, :password_confirmation, :school, :abbreviation, :cell, :section)
