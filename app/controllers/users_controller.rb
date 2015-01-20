@@ -48,6 +48,7 @@ class UsersController < ApplicationController
   def create
      @user = User.create(user_params)
     if @user.persisted?
+      UserMailer.new_user(@user).deliver
       redirect_to root_url, notice: "User was successfully created"
     else
       render :new

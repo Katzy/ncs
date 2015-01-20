@@ -25,8 +25,7 @@
       <%= f.text_field :name %>
     </div>
 
-    <div class="row">
-    <div class="form-group">
+
       <div class="field">
         <%= f.label :school %><br>
         <%= f.text_field :school %>
@@ -40,9 +39,8 @@
       <div class="field">
         <%= f.label :section %><br>
         <%= f.collection_select :section, ['C', 'CCS', 'LA', 'N', 'NCS', 'O', 'S', 'SD', 'SF', 'SJ', 'OTHER'], :to_s, :to_s, include_blank: true %>
-      </div>
-      </div>
       </div><br>
+
 
 
     <div class="field">
