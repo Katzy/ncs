@@ -35,7 +35,6 @@ class UsersController < ApplicationController
     @users = User.order('name ASC')
     @user = User.find(params[:id])
     if @user.update(user_params)
-      sign_in(@user, :bypass => true)
       if current_user.admin?
         redirect_to users_path
       else
