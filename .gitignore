@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 /config/database.yml
+
+/config/initializers/app_env_vars.rb
