@@ -1,5 +1,5 @@
 <div class="team-name">
-  <h1>Users</h1>
+  <h3>TEAMS ENTERED</h3>
 
   <p>
     Download:
@@ -8,19 +8,35 @@
 
   </p>
 </div>
-  <table class="table table-condensed table-bordered">
-    <thead>
-      <tr>
-        <th class="col-md-2">Email</th>
-        <th class="col-md-1">Name</th>
-        <th class="col-md-1"></th>
-        <th class="col-md-1"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-        <%= render partial: 'users/table_row', locals: { user: user } %>
-      <% end %>
-    </tbody>
-  </table>
-
+<div class="container" ng-view="">
+  <div class="row">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover ">
+            <thead>
+              <tr>
+               <th class="col-md-1">Team Name</th>
+                <th class="col-md-1">Section</th>
+                <th class="col-md-1">Coach</th>
+                <th class="col-md-1">Team Roster</th>
+                <th class="col-md-1">Tournaments Entered</th>
+                <% if current_user.admin? %>
+                  <th class="col-md-1">Cell</th>
+                  <th class="col-md-1">Email</th>
+                  <th class="col-md-1">Edit Team Info</th>
+                  <th class="col-md-1">Delete</th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <%= render partial: 'users/shared/table_row', locals: { user: user } %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

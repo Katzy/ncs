@@ -1,57 +1,60 @@
-class TournamentsController < ApplicationController
+module Users
+  class TournamentsController < ApplicationController
 
-    def index
-      team = Team.find(params[:team_id])
-    end
+      def index
+        @user = User.find(params[:id])
+        @tournaments = @user.tournaments.all
+      end
 
-    def new
-      @team = Team.find(params[:team_id])
-      @tournament = @team.tournament.new
-    end
+      def new
+        @user = User.find(params[:id])
+        @tournament = @team.tournaments.new
+      end
 
-    def create
-      @team = Team.find(params[:team_id])
-      @tournament = @team.tournament.new(tournament_params)
+      def create
+        @user = User.find(params[:id])
+        @tournament = @user.tournament.new(tournament_params)
 
-      respond_to do |format|
-        if @tournament.save
-          format.html { redirect_to team_tournaments_path, notice: 'tournament was successfully created.' }
-          format.json { render action: 'index', status: :created, location: @tournament }
-          # added:
-          format.js   { render action: 'index', status: :created, location: @tournament }
-        else
-          format.html { render action: 'new' }
-          format.json { render json: @tournament.errors, status: :unprocessable_entity }
-          # added:
-          format.js   { render json: @tournament.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          if @tournament.save
+            format.html { redirect_to user_tournaments_path, notice: 'tournament was successfully created.' }
+            format.json { render action: 'index', status: :created, location: @tournament }
+            # added:
+            format.js   { render action: 'index', status: :created, location: @tournament }
+          else
+            format.html { render action: 'new' }
+            format.json { render json: @tournament.errors, status: :unprocessable_entity }
+            # added:
+            format.js   { render json: @tournament.errors, status: :unprocessable_entity }
+          end
         end
       end
-    end
 
-    def edit
-      @team = Team.find(params[:team_id])
-      @tournament = @team.tournament.find(params[:id])
-    end
-
-    def update
-      team = Team.find(params[:team_id])
-#      @tournament = team.tournaments.find(params[:id])
-      if @tournament.update(tournament_params)
-        redirect_to team_path
-      else
-        render :edit
+      def edit
+        @user = User.find(params[:id])
+        @tournament = @user.tournament.find(params[:id])
       end
-    end
 
-    def destroy
-      @tournament = tournament.find_by_id(params[:id])
-      @tournament.destroy
-      redirect_to team_path
-    end
+      def update
+        @user = User.find(params[:id])
+  #      @tournament = team.tournaments.find(params[:id])
+        if @tournament.update(tournament_params)
+          redirect_to users_home_path
+        else
+          render :edit
+        end
+      end
 
-    private
+      def destroy
+        @tournament = tournament.find_by_id(params[:id])
+        @tournament.destroy
+        redirect_to users_home_path
+      end
 
-    def tournament_params
-      params.require(:tournament).permit(:name, :size)
+      private
+
+      def tournament_params
+        params.require(:tournament).permit(:name, :size)
+      end
     end
   end

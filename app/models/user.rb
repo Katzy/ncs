@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :team
+  has_many :wrestlers
 
   validates :name, presence: true
+
+
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

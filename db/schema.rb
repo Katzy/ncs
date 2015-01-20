@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117134857) do
+ActiveRecord::Schema.define(version: 20150119225222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20150117134857) do
 
   create_table "tournaments_teams", id: false, force: true do |t|
     t.integer "tournament_id"
-    t.integer "team_id"
+    t.integer "user_id"
   end
 
-  add_index "tournaments_teams", ["team_id"], name: "index_tournaments_teams_on_team_id", using: :btree
   add_index "tournaments_teams", ["tournament_id"], name: "index_tournaments_teams_on_tournament_id", using: :btree
+  add_index "tournaments_teams", ["user_id"], name: "index_tournaments_teams_on_user_id", using: :btree
 
   create_table "tournaments_wrestlers", id: false, force: true do |t|
     t.integer "tournament_id"
@@ -66,12 +66,16 @@ ActiveRecord::Schema.define(version: 20150117134857) do
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
     t.string   "name"
-    t.integer  "team_id"
+    t.string   "school",                 default: "",    null: false
+    t.string   "abbreviation",           default: "",    null: false
+    t.string   "cell",                   default: "",    null: false
+    t.string   "section",                default: "",    null: false
+    t.integer  "tournament_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["team_id"], name: "index_users_on_team_id", using: :btree
+  add_index "users", ["tournament_id"], name: "index_users_on_tournament_id", using: :btree
 
   create_table "wrestlers", force: true do |t|
     t.datetime "created_at"
@@ -95,8 +99,10 @@ ActiveRecord::Schema.define(version: 20150117134857) do
     t.integer  "team_id"
     t.text     "comments"
     t.string   "school"
+    t.integer  "user_id"
   end
 
   add_index "wrestlers", ["team_id"], name: "index_wrestlers_on_team_id", using: :btree
+  add_index "wrestlers", ["user_id"], name: "index_wrestlers_on_user_id", using: :btree
 
 end

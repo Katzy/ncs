@@ -1,11 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @teams = Team.order('name ASC')
+    @users = User.order('school ASC')
   end
-
-  def about
-  end
-
 
 end

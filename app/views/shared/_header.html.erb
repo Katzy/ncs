@@ -20,19 +20,18 @@
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ADMIN<span class="caret"></span></button>
               <ul class="dropdown-menu" role="menu">
-                <li><%= link_to "ADD USER", new_user_path %></li>
-                <li><%= link_to "EDIT USERS", users_path %></li>
-                <li><%= link_to "EDIT TEAMS", teams_path %></li>
-                <li><%= link_to "WRESTLERS", wrestlers_path %></li>
+                <li><%= link_to "ADD TEAM(user)", new_user_path %></li>
+                <li><%= link_to "VIEW TEAMS", users_path %></li>
+                <li><%= link_to "VIEW ALL WRESTLERS", wrestlers_path %></li>
               </ul>
             </div>
 
           <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ROSTERS<span class="caret"></span></button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">TEAM ROSTERS<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
-              <% @teams.each do |team| %>
+              <% @users.each do |user| %>
                 <div style="width: 300px;">
-                  <li><%= link_to "#{team.name}", team_wrestlers_path(team) %></li>
+                  <li><%= link_to "#{user.school}", user_wrestlers_path(user) %></li>
                 </div>
               <% end %>
             </ul>
@@ -46,7 +45,7 @@
             </button>
             <ul class="dropdown-menu" role="menu">
               <li><%= link_to "ENTER MY TEAM", users_home_path %></li>
-              <li><%= link_to "VIEW OTHER TEAMS", teams_path %></li>
+              <li><%= link_to "VIEW OTHER TEAMS", users_path %></li>
               <li class="divider"></li>
             </ul>
           </div>

@@ -1,10 +1,18 @@
 <tr>
-  <td><%= team.name %></td>
-  <td><%= team.section %></td>
-  <td><%= team.coach %></td>
-  <% if current_user.admin? || current_user.team_id == @team.id  %>
-    <td><%= team.cell %></td>
-    <td><%= link_to 'Edit', edit_team_path(team)%></td>
+  <% if current_user.admin? %>
+    <td><%= user.abbreviation %></td>
+  <% else %>
+    <td><%= user.school %></td>
+  <% end %>
+  <td><%= user.section %></td>
+  <td><%= user.name %></td>
+  <td><%= link_to 'Wrestlers', user_wrestlers_path(user) %></td>
+  <td><%= link_to 'Tournaments' %></td>
+  <% if current_user.admin? %>
+    <td><%= user.cell %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Edit', edit_user_path(user)%></td>
+    <td><%= link_to 'Delete', user, method: "delete", :data => {:confirm => 'Are you sure?'} %>
   <% end %>
   </td>
 </tr>

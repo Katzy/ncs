@@ -1,4 +1,4 @@
-module Teams
+module Users
   class TournamentsController < ApplicationController
 
     def index

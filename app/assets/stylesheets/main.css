@@ -189,6 +189,8 @@ padding: 12px;
   padding-right: 20px;
 
 }
+
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
 /* User sign in and sign forms. */
 .border-form-div {
   max-width: 300px;
@@ -220,6 +222,11 @@ body, html {
 
 width: 100%;
 
+}
+
+.container-team {
+
+  width: 95;
 }
 
 table {

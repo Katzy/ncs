@@ -8,6 +8,7 @@ class UserMailer < ActionMailer::Base
 
   def wrestler_updated(user)
     @user = user
+
     mail(to: "scottalankatz@gmail.com", subject: "Wrestler Info Updated")
   end
 end

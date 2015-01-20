@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
 
   before_filter :authorize_admin, only: :create
+  before_filter :authenticate_user!, :only => [:edit, :update]
+
+  # SECTIONS = [C, CCS, LA, NCS, N, O, S, SD, SF, SJ, OTHER]
 
   def home
     @user = current_user
-    @team = Team.find(@user[:team_id])
-    @wrestlers = @team.wrestlers.order('weight ASC')
+    @wrestlers = @user.wrestlers.order('weight ASC')
+    @wrestler = @user.wrestlers.new
   end
 
   def index
@@ -24,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
     @user = User.find(params[:id])
   end
 
@@ -31,14 +35,18 @@ class UsersController < ApplicationController
     @users = User.order('name ASC')
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to users_path
+      sign_in(@user, :bypass => true)
+      if current_user.admin?
+        redirect_to users_path
+      else
+        redirect_to users_home_path
+      end
     else
       render :edit
     end
   end
 
   def create
-    @teams = Team.all
      @user = User.create(user_params)
     if @user.persisted?
       redirect_to root_url, notice: "User was successfully created"
@@ -60,7 +68,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation, :team_id)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation, :school, :abbreviation, :cell, :section)
   end
 
 end

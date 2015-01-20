@@ -1,13 +1,13 @@
-module Teams
+module Users
   class WrestlersController < ApplicationController
 
     def index
-      user = User.find_by_id(session[:user_id])
+      user = User.find(params[:user_id])
       @teams = Team.order('name ASC')
-      @team = Team.find(params[:team_id])
-      wrestlers = @team.wrestlers.order('weight ASC') # specifically for csv
-      @wrestlers = @team.wrestlers.order('weight ASC') # for index
-      @wrestler = @team.wrestlers.new
+      @user = User.find(params[:user_id])
+      wrestlers = @user.wrestlers.order('weight ASC') # specifically for csv
+      @wrestlers = @user.wrestlers.order('weight ASC') # for index
+      @wrestler = @user.wrestlers.new
       respond_to do |format|
         format.html
         format.csv { send_data wrestlers.to_csv }
@@ -16,14 +16,14 @@ module Teams
     end
 
     def new
-      @team = Team.find(params[:team_id])
-      @wrestler = @team.wrestlers.new
+      @user = User.find(params[:user_id])
+      @wrestler = @user.wrestlers.new
     end
 
     def create
-      @team = Team.find(params[:team_id])
-      @wrestler = @team.wrestlers.new(wrestler_params)
-      @wrestler.school = @team.name
+      @user = User.find(params[:user_id])
+      @wrestler = @user.wrestlers.new(wrestler_params)
+      @wrestler.school = @user.abbreviation
 
       respond_to do |format|
         if @wrestler.save
@@ -41,8 +41,8 @@ module Teams
     end
 
     def edit
-      @team = Team.find(params[:team_id])
-      @wrestler = @team.wrestlers.find(params[:id])
+      @user = User.find(params[:user_id])
+      @wrestler = @user.wrestlers.find(params[:id])
     end
 
     def show

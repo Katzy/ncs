@@ -27,11 +27,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
-  resources :users, except: :create
 
-  resources :teams do
-    resources :wrestlers, controller: "teams/wrestlers"
-    resources :tournaments, controller: "teams/tournaments"
+  resources :users, except: :create do
+    resources :wrestlers, controller: "users/wrestlers"
+    resources :tournaments, controller: "users/tournaments"
   end
 
   resources :tournaments, only: [:index, :edit, :update]

@@ -1,58 +1,33 @@
 
 <div class="team-name">
-  <h1><%= @team.name %></h1>
-
+  <h3><%= @user.school.upcase %></h3>
 </div>
-  <table class="table table-condensed table-bordered" id="teams_table">
-    <thead>
-      <tr>
-        <th class="col-md-1">Team Name</th>
-        <th class="col-md-1">Section</th>
-        <th class="col-md-1">Coach</th>
-        <% if current_user.admin? || current_user.team_id == @team.id  %>
-          <th class="col-md-1">Cell</th>
-          <th class="col-md-1">Edit Team Info</th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-        <%= render partial: '/users/shared/table_row', locals: { team: @team } %>
-    </tbody>
-  </table><br><br>
+<div class="container-team" ng-view="">
+  <div class="row">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" id="teams_table">
+            <thead>
+              <tr>
+                <th class="col-md-1">Team Name</th>
+                <th class="col-md-1">Section</th>
+                <th class="col-md-1">Coach</th>
+                <th class="col-md-1">Cell</th>
+                <th class="col-md-1">Email</th>
+                <th class="col-md-1">Edit Team Info</th>
 
-<div class="team-name">
-  <h2> WRESTLERS</h2>
-
+              </tr>
+            </thead>
+            <tbody>
+                <%= render partial: '/users/table_row', locals: { user: @user} %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<table class="table table-condensed table-bordered" id="wrestlers_table">
-  <thead>
-    <tr>
-      <th>Wt</th>
-      <th>School</th>
-      <th>First</th>
-      <th>Last</th>
-      <th>YR</th>
-      <th>W</th>
-      <th>L</th>
-      <th>SEC</th>
-      <th>ST</th>
-      <th>T1</th>
-      <th>T2</th>
-      <th>T3</th>
-      <th>T4</th>
-      <th>T5</th>
-      <th>T6</th>
-      <th>T7</th>
-      <th>T8</th>
-      <th>Comments</th>
-      <th class="col-md-0"></th>
-      <th class="col-md-0"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @wrestlers.each do |wrestler, team| %>
-      <%= render partial: '/users/shared/wrestlers/table_row', locals: { wrestler: wrestler, team: team} %>
-    <% end %>
-  </tbody>
-</table>
-<br><br><br>
+
+<%= render partial: 'users/wrestlers/index', locals: { wrestlers: @wrestlers} %>
+<br>

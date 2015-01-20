@@ -3,7 +3,7 @@ class InformationController < ApplicationController
   end
 
   def teams
-    redirect_to teams_path
+    redirect_to users_path
     # @teams = Team.all
     # teams = Team.order('name ASC')
     # respond_to do |format|

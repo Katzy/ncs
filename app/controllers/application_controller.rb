@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
-  before_filter :initialize_teams_for_header
+  before_filter :initialize_users_for_header
 
   def configure_devise_permitted_parameters
     registration_params = [:email, :name, :password, :password_confirmation]
@@ -21,10 +21,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def initialize_teams_for_header
-    @teams = Team.all
-    @teams = Team.order('name ASC')
-    @user = User.find_by_id(session[:user_id])
+  def initialize_users_for_header
+    @users = User.order('school ASC')
 
   end
 
