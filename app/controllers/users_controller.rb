@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order('name Asc')
-    users = User.order('name Asc')
+    @users = User.order('school Asc')
+    users = User.order('school Asc')
     respond_to do |format|
       format.html
       format.csv { send_data users.to_csv }
