@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :wrestlers
+  has_many :tournaments
+  accepts_nested_attributes_for :tournaments
 
   validates :name, presence: true
 

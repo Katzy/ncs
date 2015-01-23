@@ -31,7 +31,9 @@
             <ul class="dropdown-menu" role="menu">
               <% @users.each do |user| %>
                 <div style="width: 300px;">
-                  <li><%= link_to "#{user.school}", user_wrestlers_path(user) %></li>
+                  <% if user.school != "" %>
+                    <li><%= link_to "#{user.school}", user_wrestlers_path(user) %></li>
+                  <% end %>
                 </div>
               <% end %>
             </ul>
@@ -44,7 +46,9 @@
               TOURNAMENT ENTRIES <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><%= link_to "ENTER MY TEAM", users_home_path %></li>
+              <% if current_user.admin? || current_user.school != "" %>
+                <li><%= link_to "ENTER MY TEAM", users_home_path %></li>
+              <% end %>
               <li><%= link_to "VIEW OTHER TEAMS", users_path %></li>
               <li class="divider"></li>
             </ul>

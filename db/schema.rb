@@ -11,37 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119225222) do
+ActiveRecord::Schema.define(version: 20150121230732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "teams", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "section",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "coach"
-    t.string   "cell"
-  end
-
   create_table "tournaments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "team_id"
     t.string   "name"
     t.string   "size"
+    t.integer  "user_id"
   end
 
-  add_index "tournaments", ["team_id"], name: "index_tournaments_on_team_id", using: :btree
+  add_index "tournaments", ["user_id"], name: "index_tournaments_on_user_id", using: :btree
 
-  create_table "tournaments_teams", id: false, force: true do |t|
+  create_table "tournaments_users", id: false, force: true do |t|
     t.integer "tournament_id"
     t.integer "user_id"
   end
 
-  add_index "tournaments_teams", ["tournament_id"], name: "index_tournaments_teams_on_tournament_id", using: :btree
-  add_index "tournaments_teams", ["user_id"], name: "index_tournaments_teams_on_user_id", using: :btree
+  add_index "tournaments_users", ["tournament_id"], name: "index_tournaments_users_on_tournament_id", using: :btree
+  add_index "tournaments_users", ["user_id"], name: "index_tournaments_users_on_user_id", using: :btree
 
   create_table "tournaments_wrestlers", id: false, force: true do |t|
     t.integer "tournament_id"
@@ -96,13 +87,11 @@ ActiveRecord::Schema.define(version: 20150119225222) do
     t.integer  "tourney6_place"
     t.integer  "tourney7_place"
     t.integer  "tourney8_place"
-    t.integer  "team_id"
     t.text     "comments"
     t.string   "school"
     t.integer  "user_id"
   end
 
-  add_index "wrestlers", ["team_id"], name: "index_wrestlers_on_team_id", using: :btree
   add_index "wrestlers", ["user_id"], name: "index_wrestlers_on_user_id", using: :btree
 
 end

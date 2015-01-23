@@ -1,6 +1,7 @@
 class Tournament < ActiveRecord::Base
 
-  belongs_to :team
+  has_and_belongs_to_many :users
+
 
   validates :name, presence: true, uniqueness: true
 

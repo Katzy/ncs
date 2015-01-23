@@ -25,9 +25,10 @@
       <%= f.text_field :name %>
     </div>
 
+
     <div class="field">
       <%= f.label :school %><br>
-      <%= f.text_field :school %>
+      <%= f.text_field :school, :disable => true %>
     </div>
 
     <% if current_user.admin? %>

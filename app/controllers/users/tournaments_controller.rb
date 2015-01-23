@@ -2,24 +2,26 @@ module Users
   class TournamentsController < ApplicationController
 
     def index
-      @teams = Team.order('name ASC')
-      @team = Team.find(params[:team_id])
+      @users = User.order('school ASC')
+      @user = User.find(params[:user_id])
       # @tournaments = @team.tournaments.order('name ASC')
       # @tournament = @team.tournaments.new
-      wrestlers = @team.wrestlers.order('weight ASC') # specifically for csv
-      @wrestlers = @team.wrestlers.order('weight ASC') # for index
-      @wrestler = @team.wrestlers.new
+      @tournament = @user.tournaments.new
+      wrestlers = @user.wrestlers.order('weight ASC') # specifically for csv
+      @tournaments = @user.tournaments.order('name ASC')
+      @wrestlers = @user.wrestlers.order('weight ASC') # for index
+      @wrestler = @user.wrestlers.new
 
     end
 
     def new
-      @team = Team.find(params[:team_id])
-      @tournament = @team.tournaments.new
+      @user = User.find(params[:user_id])
+      @tournament = @user.tournaments.new
     end
 
     def create
-      @team = Team.find(params[:team_id])
-      @tournament = @team.tournaments.new(tournament_params)
+      @user = User.find(params[:user_id])
+      @tournament = @user.tournaments.new(tournament_params)
 
       respond_to do |format|
         if @tournament.save
@@ -37,15 +39,15 @@ module Users
     end
 
     def edit
-      @team = Team.find(params[:team_id])
-      @tournament = @team.tournament.find(params[:id])
+      @user = User.find(params[:user_id])
+      @tournament = @user.tournament.find(params[:id])
     end
 
     def update
-      team = Team.find(params[:team_id])
-      @tournament = team.tournaments.find(:id)
+      @user = User.find(params[:user_id])
+      @tournament = @user.tournaments.find(:id)
       if @tournament.update(tournament_params)
-        redirect_to team_path
+        redirect_to users_home_path(@user)
       else
         render :edit
       end
@@ -54,13 +56,13 @@ module Users
     def destroy
       @tournament = tournament.find_by_id(params[:id])
       @tournament.destroy
-      redirect_to team_path
+      redirect_to users_home_path(@user)
     end
 
     private
 
     def tournament_params
-      params.require(:tournament).permit(:name, :size)
+      params.require(:tournament).permit(:name, :size, :user_id, :wrestler_id)
     end
   end
 end

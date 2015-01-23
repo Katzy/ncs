@@ -3,17 +3,17 @@ module Users
 
       def index
         @user = User.find(params[:id])
-        @tournaments = @user.tournaments.all
+        @tournaments = @user.tournaments.order('name' ASC)
       end
 
       def new
         @user = User.find(params[:id])
-        @tournament = @team.tournaments.new
+        @tournament = @user.tournaments.new
       end
 
       def create
         @user = User.find(params[:id])
-        @tournament = @user.tournament.new(tournament_params)
+        @tournament = @user.tournaments.new(tournament_params)
 
         respond_to do |format|
           if @tournament.save
@@ -54,7 +54,7 @@ module Users
       private
 
       def tournament_params
-        params.require(:tournament).permit(:name, :size)
+        params.require(:tournament).permit(:name, :size, :user_id, :wrestler_id)
       end
     end
   end

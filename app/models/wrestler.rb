@@ -1,6 +1,8 @@
 class Wrestler < ActiveRecord::Base
 
   belongs_to :user
+  belongs_to :tournament
+  accepts_nested_attributes_for :tournament
 
   validates :first_name, presence: true, null: false
   validates :last_name, presence: true, null: false

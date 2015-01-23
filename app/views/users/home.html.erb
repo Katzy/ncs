@@ -16,7 +16,6 @@
                 <th class="col-md-1">Cell</th>
                 <th class="col-md-1">Email</th>
                 <th class="col-md-1">Edit Team Info</th>
-
               </tr>
             </thead>
             <tbody>
@@ -28,6 +27,8 @@
     </div>
   </div>
 </div>
+
+<%= render partial: 'users/tournaments/index', locals: { user: @user, tournaments: @tournaments } %>
 
 <%= render partial: 'users/wrestlers/index', locals: { wrestlers: @wrestlers} %>
 <br>

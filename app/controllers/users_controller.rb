@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @user = current_user
     @wrestlers = @user.wrestlers.order('weight ASC')
     @wrestler = @user.wrestlers.new
+    @tournament = @user.tournaments.new
+    @tournaments = @user.tournaments.order('name ASC')
   end
 
   def index

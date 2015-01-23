@@ -6,6 +6,7 @@
     <thead>
       <tr>
         <th>Tournament Name</th>
+        <th>Field Size</th>
         <% if current_user.admin? %>
         <th></th>
         <th></th>
@@ -20,7 +21,7 @@
   </table>
 
   <div class="team">
-    <h3><button type="button" class="btn-large btn-default"><%= link_to 'Add Tournament', '#new_user_tournament_modal', 'data-toggle' => 'modal' %></button></h3>
+    <h3><button type="button" class="btn-large btn-default"><%= link_to 'ADD TOURNAMENT', '#new_user_tournament_modal', 'data-toggle' => 'modal' %></button></h3>
 
     <div class="modal fade" id="new_user_tournament_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -30,7 +31,7 @@
             <h4 class="modal-title" id="myModalLabel">Create new tournament</h4>
           </div>
           <div class="modal-body">
-            <%= render 'form', modal: true %>
+            <%= render 'users/tournaments/form', modal: true %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

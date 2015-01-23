@@ -31,7 +31,11 @@
             </thead>
             <tbody>
               <% @users.each do |user| %>
-                <%= render partial: 'users/shared/table_row', locals: { user: user } %>
+                <% if current_user.admin? %>
+                  <%= render partial: 'users/shared/table_row', locals: { user: user } %>
+                <% elsif user.school != "" %>
+                  <%= render partial: 'users/shared/table_row', locals: { user: user } %>
+                <% end %>
               <% end %>
             </tbody>
           </table>
