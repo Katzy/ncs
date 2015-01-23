@@ -19,12 +19,14 @@
     </tbody>
   </table>
 
-  <div class="team">
+  <div class="add_wrestler_button">
+    <% if current_user.admin? || current_user.id == @user.id %>
     <h3><button type="button" class="btn-large btn-default"><%= link_to 'Add Tournament', '#new_user_tournament_modal', 'data-toggle' => 'modal' %></button></h3>
+    <% end %>
 
     <div class="modal fade" id="new_user_tournament_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
+       inde <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title" id="myModalLabel">Create new tournament</h4>

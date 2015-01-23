@@ -23,8 +23,8 @@ module Users
     def create
       @user = User.find(params[:user_id])
       @wrestler = @user.wrestlers.new(wrestler_params)
-      @wrestler.school = @user.abbreviation
-
+      @wrestler.abbreviation = @user.abbreviation
+      @wrestler.school = @user.school
       respond_to do |format|
         if @wrestler.save
           format.html { redirect_to team_wrestlers_path, notice: 'wrestler was successfully created.' }
