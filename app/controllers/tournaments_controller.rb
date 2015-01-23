@@ -3,7 +3,7 @@ module Users
 
       def index
         @user = User.find(params[:id])
-        @tournaments = @user.tournaments.order('name' ASC)
+        @tournaments = @user.tournaments.order('name ASC')
       end
 
       def new
