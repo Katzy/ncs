@@ -31,8 +31,7 @@ module Users
       end
 
       def edit
-        @user = User.find(params[:id])
-        @tournament = @user.tournament.find(params[:id])
+        @tournament = Tournament.find(params[:id])
       end
 
       def update

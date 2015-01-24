@@ -1,5 +1,11 @@
 <div class="team-name">
-  <h3><%= @user.school.upcase %> WRESTLERS</h3>
+
+<h2><%= @user.school.upcase %></h2>
+
+<%= render partial: 'users/tournaments/index', locals: { user: @user, tournaments: @tournaments } %>
+
+
+  <h3>WRESTLERS</h3>
 
     Download:
       <%= link_to "CSV", user_wrestlers_path(format: "csv") %> |

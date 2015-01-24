@@ -6,7 +6,7 @@
     <thead>
       <tr>
         <th>Tournament Name</th>
-        <th>Field Size</th>
+
         <% if current_user.admin? || current_user.id == @user.id %>
         <th>Edit</th>
         <th>Delete</th>
@@ -28,7 +28,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Create new tournament</h4>
+            <h4 class="modal-title" id="myModalLabel">ENTER TOURNAMENT FROM YOUR 2014-15 SCHEDULE</h4>
           </div>
           <div class="modal-body">
             <%= render 'users/tournaments/form', modal: true %>

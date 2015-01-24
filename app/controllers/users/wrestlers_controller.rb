@@ -2,12 +2,15 @@ module Users
   class WrestlersController < ApplicationController
 
     def index
+      @number = 1
       user = User.find(params[:user_id])
       @teams = Team.order('name ASC')
       @user = User.find(params[:user_id])
       wrestlers = @user.wrestlers.order('weight ASC') # specifically for csv
       @wrestlers = @user.wrestlers.order('weight ASC') # for index
       @wrestler = @user.wrestlers.new
+      @tournaments = @user.tournaments.order('name ASC')
+      @tournament = @user.tournaments.new
       respond_to do |format|
         format.html
         format.csv { send_data wrestlers.to_csv, filename: user.school + '.csv' }
