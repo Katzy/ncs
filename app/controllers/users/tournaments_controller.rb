@@ -2,6 +2,7 @@ module Users
   class TournamentsController < ApplicationController
 
     def index
+      @number = 1
       @users = User.order('school ASC')
       @user = User.find(params[:user_id])
       # @tournaments = @team.tournaments.order('name ASC')

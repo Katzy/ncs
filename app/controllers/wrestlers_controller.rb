@@ -56,7 +56,6 @@ class WrestlersController < ApplicationController
   end
 
   def edit
-    @team = Team.find_by_id(params[:team_id])
     @wrestler = Wrestler.find(params[:id])
   end
 
@@ -89,7 +88,7 @@ class WrestlersController < ApplicationController
   private
 
   def wrestler_params
-    params.require(:wrestler).permit(:first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :user_id)
+    params.require(:wrestler).permit(:first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :user_id, :tournament_id)
   end
 
 end

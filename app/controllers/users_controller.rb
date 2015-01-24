@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @wrestler = @user.wrestlers.new
     @tournament = @user.tournaments.new
     @tournaments = @user.tournaments.order('name ASC')
+    @number = 1
   end
 
   def index

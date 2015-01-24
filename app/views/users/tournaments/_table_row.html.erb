@@ -1,6 +1,8 @@
 <tr>
+  <td><%= @number %>
+    <% @number += 1 %>
   <td><%= tournament.name %></td>
-  <% if current_user.admin? %>
+  <% if current_user.admin? || current_user.id == @user.id %>
     <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
     <td><%= link_to 'Delete', tournament, method: "delete", :data => {:confirm => 'Are you sure?'} %></td>
   <% end %>

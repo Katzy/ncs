@@ -7,9 +7,9 @@
       <tr>
         <th>Tournament Name</th>
         <th>Field Size</th>
-        <% if current_user.admin? %>
-        <th></th>
-        <th></th>
+        <% if current_user.admin? || current_user.id == @user.id %>
+        <th>Edit</th>
+        <th>Delete</th>
       <% end %>
       </tr>
     </thead>
