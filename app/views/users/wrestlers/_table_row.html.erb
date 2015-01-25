@@ -16,8 +16,9 @@
   <td><%= wrestler.tourney6_place %></td>
   <td><%= wrestler.tourney7_place %></td>
   <td><%= wrestler.tourney8_place %></td>
-  <% if current_user.admin? || current_user.id == wrestler.user_id %>
+
     <td><%= wrestler.comments %></td>
+    <% if current_user.admin? || current_user.id == wrestler.user_id %>
     <td><%= link_to 'Edit', edit_wrestler_path(wrestler) %></td>
     <td><%= link_to 'Delete', wrestler, method: "delete", :data => {:confirm => 'Are you sure?'} %></td>
   <% end %>
