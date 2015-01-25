@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <ul class="container">
       <div class="banner">
         <h3>Mission San Jose Invitational Wrestling Tournament</h3>
@@ -27,12 +27,12 @@
             </div>
 
           <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">TEAM ROSTERS<span class="caret"></span></button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">VIEW TEAM ROSTERS<span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
               <% @users.each do |user| %>
                 <div style="width: 300px;">
                   <% if user.school != "" %>
-                    <li><%= link_to "#{user.school}", user_wrestlers_path(user) %></li>
+                    <li><%= link_to "#{user.school} (#{user.wrestlers.count})", user_wrestlers_path(user) %></li>
                   <% end %>
                 </div>
               <% end %>

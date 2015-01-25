@@ -7,6 +7,7 @@ class Wrestler < ActiveRecord::Base
   validates :first_name, presence: true, null: false
   validates :last_name, presence: true, null: false
   validates :weight, presence: true, null: false
+  validates_uniqueness_of :weight, scope: :user_id
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
