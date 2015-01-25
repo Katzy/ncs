@@ -21,8 +21,8 @@ module Users
     end
 
     def create
-      @number = 1
       @user = User.find(params[:user_id])
+      @number = @user.tournaments.count + 1
       @tournament = @user.tournaments.new(tournament_params)
 
       respond_to do |format|
