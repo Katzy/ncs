@@ -1,7 +1,8 @@
-module Users
+
   class TournamentsController < ApplicationController
 
       def index
+        @number = 1
         @user = User.find(params[:id])
         @tournaments = @user.tournaments.order('name ASC')
       end
@@ -35,7 +36,7 @@ module Users
       end
 
       def update
-        @user = User.find(params[:id])
+       @tournament = Tournament.find(params[:id])
   #      @tournament = team.tournaments.find(params[:id])
         if @tournament.update(tournament_params)
           redirect_to users_home_path
@@ -45,9 +46,9 @@ module Users
       end
 
       def destroy
-        @tournament = tournament.find_by_id(params[:id])
+        @tournament = Tournament.find(params[:id])
         @tournament.destroy
-        redirect_to users_home_path
+        redirect_to users_home_path(@user)
       end
 
       private
@@ -56,4 +57,3 @@ module Users
         params.require(:tournament).permit(:name, :size, :user_id, :wrestler_id)
       end
     end
-  end

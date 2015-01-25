@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :wrestlers
   has_many :tournaments
-  accepts_nested_attributes_for :tournaments
+   accepts_nested_attributes_for :tournaments
 
   validates :name, presence: true
 

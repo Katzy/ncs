@@ -21,6 +21,7 @@ module Users
     end
 
     def create
+      @number = 1
       @user = User.find(params[:user_id])
       @tournament = @user.tournaments.new(tournament_params)
 

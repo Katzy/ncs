@@ -18,8 +18,9 @@
           <div class="form-group">
             <%= f.label :weight, class: 'col-sm-2 control-label' %>
             <div class="col-sm-2">
-              <%= f.text_field :weight, class: 'form-control' %><br>
+                <%= f.collection_select :weight, ['106', '113', '120', '126', '132', '138', '145', '152', '160', '170', '182', '195', '220', '285'], :to_s, :to_s %>
             </div>
+            Only 1 Wrestler per weight can be saved<br>
           </div>
         </div>
 
@@ -40,7 +41,7 @@
         <div class="form-group">
           <%= f.label :grade, "Grade (9-12)", class: 'col-sm-2 control-label' %>
             <div class="col-sm-2">
-              <%= f.text_field :grade, class: 'form-control' %><br>
+              <%= f.collection_select :grade, ['9', '10', '11', '12'], :to_s, :to_s %>
             </div>
           <%= f.label :wins, class: 'col-sm-2 control-label' %>
           <div class="col-sm-2">
@@ -122,7 +123,8 @@
 
       <div class="form-actions">
         <%= f.submit 'Submit', class: 'btn btn-default' %>
-      </div>
+      </div><br>
+      If the form doesn't save, check to make sure you don't have a duplicate weight!<br><br>
     <% end %>
   </div>
 </div>
