@@ -63,6 +63,10 @@ class UsersController < ApplicationController
   def destroy
     @users = User.order('name ASC')
     @user = User.find_by_id(params[:id])
+    @tournaments = @user.tournaments.all
+    @wrestlers = @user.wrestlers.all
+    @wrestlers.destroy
+    @tournaments.destroy
     @user.destroy
     redirect_to users_path
   end
