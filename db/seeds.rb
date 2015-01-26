@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email: 'randall.e.katz@gmail.com', name: 'Skip Randalberg', school: 'Milpitas', abbreviation: 'MILP', section: 'CC', cell: '415-415-4155', password: 'milp1111')
+User.update(email: 'randall.e.katz@gmail.com', name: 'Skip Randalberg Dorkinski', school: 'Milpitas', abbreviation: 'MILP', section: 'CC', cell: '415-415-4155', password: 'milp1111')
 
-User.create(email: 'scottalankatz@gmail.com', name: 'Dip Noodlebaum', school: 'Campolindo', abbreviation: 'CAMP', section: 'NC', cell: '510-415-4155', password: 'camp1111')
+User.update(email: 'scottalankatz@gmail.com', name: 'Dip Noodlebaum Papadopolis', school: 'Campolindo', abbreviation: 'CAMP', section: 'NC', cell: '510-415-4155', password: 'camp1111')
