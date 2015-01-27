@@ -37,7 +37,6 @@ module Users
           format.json { render action: 'index', status: :created, location: @wrestler }
           # added:
           format.js   { render action: 'index', status: :created, location: @wrestler }
-
         else
           format.html { render action: 'new' }
           format.json { render json: @wrestler.errors, status: :unprocessable_entity }
@@ -45,6 +44,7 @@ module Users
           format.js   { render json: @wrestler.errors, status: :unprocessable_entity }
         end
       end
+
     end
 
     def edit

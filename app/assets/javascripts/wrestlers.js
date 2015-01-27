@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     // clear form input elements
     // todo/note: handle textarea, select, etc
-    this.find('form input[type="text"]').val('');
+    this.find('input[type=text], input[type=password], input[type=number], input[type=email], textarea').val('');
 
     // clear error state
     this.clear_previous_errors();
