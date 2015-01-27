@@ -54,18 +54,16 @@ module Users
 
     def show
       @teams = Team.order('name ASC')
-      @team = Team.find(params[:team_id])
       @wrestler = @team.wrestlers.find(params[:id])
     end
 
     def update
-      @team = Team.find(params[:user_id])
       @wrestlers = Wrestler.order('weight ASC')
       @wrestler = Wrestler.find(params[:id])
 
       if @wrestler.update(wrestler_params)
-        @team.update(team_params)
-        redirect_to @wrestler.team
+
+        redirect_to users_home_path(current_user)
       else
         render :edit
       end

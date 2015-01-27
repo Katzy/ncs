@@ -18,7 +18,7 @@
           <div class="form-group">
             <%= f.label :weight, class: 'col-sm-2 control-label' %>
             <div class="col-sm-2">
-                <%= f.collection_select :weight, ['106', '113', '120', '126', '132', '138', '145', '152', '160', '170', '182', '195', '220', '285'], :to_s, :to_s %>
+                <%= f.collection_select :weight, ['106', '113', '120', '126', '132', '138', '145', '152', '160', '170', '182', '195', '220', '285'], :to_s, :to_s, :include_blank => true %>
             </div>
             Only 1 Wrestler per weight can be saved<br>
           </div>

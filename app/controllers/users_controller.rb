@@ -13,13 +13,13 @@ class UsersController < ApplicationController
     @number = 1
   end
 
-  def send
-    @users = User.all
-    @users.each do |user|
-      UserMailer.new_user(user).deliver
-    end
-      redirect_to root_url
-  end
+  # def send
+  #   @users = User.all
+  #   @users.each do |user|
+  #     UserMailer.new_user(user).deliver
+  #   end
+  #     redirect_to root_url
+  # end
 
   def index
     @users = User.order('school Asc')
