@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get 'users/home' => 'users#home'
 
+  get 'users/send' => 'users#send'
+
   post 'create_user' => 'users#create', as: :create_user
 
   devise_for :users

@@ -1,6 +1,8 @@
 class UserMailer < ActionMailer::Base
   default from: "msjwrestlinginvitational@gmail.com"
 
+
+
   def new_user(user)
     @user = user
     mail(to: @user.email, subject: "Welcome to MSJ Wrestling Invitational Website / ACTION REQUIRED")
