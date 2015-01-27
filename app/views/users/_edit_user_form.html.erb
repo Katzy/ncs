@@ -28,7 +28,7 @@
 
     <div class="field">
       <%= f.label :school %><br>
-      <%= f.text_field :school, :disable => true %>
+      <%= f.text_field :school, :readonly => true %>
     </div>
 
     <% if current_user.admin? %>

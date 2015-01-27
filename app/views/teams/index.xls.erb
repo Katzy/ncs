@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <table>
+      <Row>
+        <Cell><Data ss:Type="String">School</Data></Cell>
+        <Cell><Data ss:Type="String">106</Data></Cell>
+        <Cell><Data ss:Type="String">113</Data></Cell>
+        <Cell><Data ss:Type="String">120</Data></Cell>
+        <Cell><Data ss:Type="String">126</Data></Cell>
+        <Cell><Data ss:Type="String">132</Data></Cell>
+        <Cell><Data ss:Type="String">138</Data></Cell>
+        <Cell><Data ss:Type="String">145</Data></Cell>
+        <Cell><Data ss:Type="String">152</Data></Cell>
+        <Cell><Data ss:Type="String">160</Data></Cell>
+        <Cell><Data ss:Type="String">170</Data></Cell>
+        <Cell><Data ss:Type="String">182</Data></Cell>
+        <Cell><Data ss:Type="String">195</Data></Cell>
+        <Cell><Data ss:Type="String">220</Data></Cell>
+        <Cell><Data ss:Type="String">285</Data></Cell>
+      </Row>
+      <% @teams.each do |team| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= team.school %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._106 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._113 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._120 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._126 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._132 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._138 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._145 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._152 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._160 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._170 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._182 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._195 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._220 %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= team._285 %></Data></Cell>
+        </Row>
+      <% end %>
+    </table>
+  </Worksheet>
+</Workbook>

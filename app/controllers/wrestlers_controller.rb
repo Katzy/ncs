@@ -39,11 +39,12 @@ class WrestlersController < ApplicationController
   end
 
   def create
-    team = Team.find(params[:team_id])
+    @team = Team.find_by_params(params[:school])
     @wrestler = team.wrestlers.create(wrestler_params)
 
     respond_to do |format|
       if @wrestler.save
+
         format.html { redirect_to team_path, notice: 'wrestler was successfully created.' }
         format.json { render action: 'show', status: :created, location: @wrestler }
         # added:

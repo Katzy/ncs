@@ -1,9 +1,6 @@
 <tr>
-  <% if current_user.admin? %>
-    <td><%= user.abbreviation %></td>
-  <% else %>
-    <td><%= user.school %></td>
-  <% end %>
+  <td><%= user.school %></td>
+
   <td><%= user.section %></td>
   <td><%= user.name %></td>
   <td><%= link_to 'Wrestlers', user_wrestlers_path(user) %></td>

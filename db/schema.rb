@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123193345) do
+ActiveRecord::Schema.define(version: 20150126215236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "teams", force: true do |t|
+    t.string  "school"
+    t.string  "_106"
+    t.string  "_113"
+    t.string  "_120"
+    t.string  "_126"
+    t.string  "_132"
+    t.string  "_138"
+    t.string  "_145"
+    t.string  "_152"
+    t.string  "_160"
+    t.string  "_170"
+    t.string  "_182"
+    t.string  "_195"
+    t.string  "_220"
+    t.string  "_285"
+    t.integer "user_id"
+  end
+
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "tournaments", force: true do |t|
     t.datetime "created_at"

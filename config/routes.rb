@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     resources :tournaments, controller: "users/tournaments"
   end
 
+  resources :teams, only: [:index]
+
   resources :tournaments, only: [:index, :edit, :update]
 
   resources :wrestlers, only: [:index, :edit, :show, :update]

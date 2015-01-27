@@ -50,6 +50,10 @@ class UsersController < ApplicationController
   def create
      @user = User.create(user_params)
     if @user.persisted?
+      # @team = Team.new
+      # @team.school = @user.school
+      # @team.user_id = @user.id
+      # @team = Team.create(team_params)
       UserMailer.new_user(@user).deliver
       redirect_to root_url, notice: "User was successfully created"
     else
@@ -63,10 +67,10 @@ class UsersController < ApplicationController
   def destroy
     @users = User.order('name ASC')
     @user = User.find_by_id(params[:id])
-    @tournaments = @user.tournaments.all
-    @wrestlers = @user.wrestlers.all
-    @wrestlers.destroy
-    @tournaments.destroy
+    # @tournaments = @user.tournaments.all
+    # @wrestlers = @user.wrestlers.all
+    # @wrestlers.destroy
+    # @tournaments.destroy
     @user.destroy
     redirect_to users_path
   end
@@ -81,6 +85,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :name, :password, :password_confirmation, :school, :abbreviation, :cell, :section)
+  end
+
+  def team_params
+
+    params.require(:team).permit(:school, :_106, :_113, :_120, :_126, :_132, :_138, :_145, :_152, :_160, :_170, :_182, :_195, :_220, :_285)
   end
 
 end

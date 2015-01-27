@@ -25,15 +25,19 @@ module Users
 
     def create
       @user = User.find(params[:user_id])
+
       @wrestler = @user.wrestlers.new(wrestler_params)
       @wrestler.abbreviation = @user.abbreviation
       @wrestler.school = @user.school
+
+
       respond_to do |format|
         if @wrestler.save
           format.html { redirect_to team_wrestlers_path, notice: 'wrestler was successfully created.' }
           format.json { render action: 'index', status: :created, location: @wrestler }
           # added:
           format.js   { render action: 'index', status: :created, location: @wrestler }
+
         else
           format.html { render action: 'new' }
           format.json { render json: @wrestler.errors, status: :unprocessable_entity }
@@ -55,10 +59,12 @@ module Users
     end
 
     def update
+      @team = Team.find(params[:user_id])
       @wrestlers = Wrestler.order('weight ASC')
       @wrestler = Wrestler.find(params[:id])
 
       if @wrestler.update(wrestler_params)
+        @team.update(team_params)
         redirect_to @wrestler.team
       else
         render :edit
@@ -76,6 +82,10 @@ module Users
 
     def wrestler_params
       params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :user_id, :tournament_id)
+    end
+
+    def team_params
+      params.require(:team).permit(:school, :_106, :_113, :_120, :_126, :_132, :_138, :_145, :_152, :_160, :_170, :_182, :_195, :_220, :_285)
     end
   end
 end
