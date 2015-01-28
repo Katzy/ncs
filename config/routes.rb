@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 
   get 'users/home' => 'users#home'
 
-  get 'users/send' => 'users#send'
+  get 'users/send' => 'users#send', as: :send_welcome_mail
+
+  get 'users/wrestlers/no_entry' => 'users/wrestlers#no_entry', as: :no_entry
 
   post 'create_user' => 'users#create', as: :create_user
 

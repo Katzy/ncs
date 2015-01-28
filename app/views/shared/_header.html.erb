@@ -23,7 +23,7 @@
                 <li><%= link_to "ADD TEAM(user)", new_user_path %></li>
                 <li><%= link_to "VIEW TEAMS", users_path %></li>
                 <li><%= link_to "VIEW ALL WRESTLERS", wrestlers_path %></li>
-                <li><%= link_to "SEND WELCOME EMAILS" %></li>
+                <li><%= link_to "SEND WELCOME EMAILS", send_welcome_mail_path %></li>
               </ul>
             </div>
 
@@ -50,8 +50,7 @@
               <% if current_user.admin? || current_user.school != "" %>
                 <li><%= link_to "ENTER MY TEAM", users_home_path %></li>
               <% end %>
-              <li><%= link_to "VIEW OTHER TEAMS", users_path %></li>
-              <li class="divider"></li>
+                            <li class="divider"></li>
             </ul>
           </div>
           <% end %>

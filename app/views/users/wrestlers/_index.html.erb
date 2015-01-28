@@ -1,6 +1,7 @@
 <div class="team-name">
 
   <h1>Wrestlers</h1>
+ <% if current_user.admin? %> |
   <p>
     Sort by:
       <%= link_to "School", wrestlers_sort_by_school_path %> |
@@ -11,10 +12,12 @@
   <p>
     Download:
       <%= link_to "CSV", wrestlers_path(format: "csv") %> |
-      <%= link_to "Excel", wrestlers_path(format: "xls") %>
-      <% if current_user.admin? || current_user.id == @user.id %> |
+      <%= link_to "Excel", wrestlers_path(format: "xls") %> |
+      <% end %>
+      <% if current_user.admin? || current_user.id == @user.id %>
 
-        <%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %>
+        <%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %> |
+        <%= link_to "FILL OUT NO ENTRIES", no_entry_path(@user) %>
       <% end %>
 
   </p>

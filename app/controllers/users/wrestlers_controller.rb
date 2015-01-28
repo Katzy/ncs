@@ -18,6 +18,26 @@ module Users
       end
     end
 
+    def no_entry
+      weights = ['106', '113', '120', '126', '132', '138', '145', '152', '160', '170', '182', '195', '220', '285']
+      team_weights = []
+      @user = User.find(params[:user_id])
+      @wrestlers = @user.wrestlers.order('weight ASC')
+      @wrestlers.each do |wrestler|
+        team_weights.push(wrestler.weight.to_s)
+      end
+
+      weights = weights - team_weights
+
+      weights.each do |weight|
+        @wrestler = @user.wrestlers.create([:weight => weight.to_i, :last_name => NO_ENTRY, :first_name => NO_ENTRY])
+      end
+
+    end
+
+
+
+
     def new
       @user = User.find(params[:user_id])
       @wrestler = @user.wrestlers.new

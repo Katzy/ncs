@@ -6,6 +6,7 @@ class WrestlersController < ApplicationController
     @wrestlers = Wrestler.order('weight ASC')
     wrestlers = Wrestler.order('weight ASC')  # for csv format
 
+
     respond_to do |format|
       format.html
       format.csv { send_data wrestlers.to_csv }
