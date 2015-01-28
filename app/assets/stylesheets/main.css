@@ -5,6 +5,12 @@
     margin-right: auto;
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
 ul.nav {
 
   float: top-right;
