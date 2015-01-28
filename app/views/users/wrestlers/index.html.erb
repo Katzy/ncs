@@ -12,8 +12,7 @@
       <%= link_to "Excel", user_wrestlers_path(format: "xls") %>
       <% if current_user.admin? || current_user.id == @user.id %> |
 
-        <%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %> |
-         <%= link_to "FILL OUT NO ENTRIES", no_entry_path %>
+        <%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %>
       <% end %>
   </p>
 </div>
