@@ -29,7 +29,7 @@
 
           <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">VIEW TEAM ROSTERS<span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu scrollable-menu" role="menu">
               <% @users.each do |user| %>
                 <div style="width: 300px;">
                   <% if user.school != "" %>
@@ -46,11 +46,12 @@
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               TOURNAMENT ENTRIES <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu scrollable-menu" role="menu">
               <% if current_user.admin? || current_user.school != "" %>
                 <li><%= link_to "ENTER MY TEAM", users_home_path %></li>
               <% end %>
-                            <li class="divider"></li>
+              <li><%= link_to "VIEW OTHER TEAMS", users_path %></li>
+              <li class="divider"></li>
             </ul>
           </div>
           <% end %>
