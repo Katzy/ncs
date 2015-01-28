@@ -4,7 +4,7 @@
       def index
         @number = 1
         @user = User.find(params[:id])
-        @tournaments = @user.tournaments.order('name ASC')
+        @tournaments = @user.tournaments.order('id ASC')
       end
 
       def new
