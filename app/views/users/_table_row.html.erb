@@ -3,9 +3,11 @@
   <td><%= user.school %></td>
   <td><%= user.section %></td>
   <td><%= user.name %></td>
+    <% if current_user.admin? or current_user.id == user.id %>
     <td><%= user.cell %></td>
     <td><%= user.email %></td>
     <td><%= link_to 'Edit', edit_user_path(user)%></td>
+    <% end %>
 
   </td>
 </tr>

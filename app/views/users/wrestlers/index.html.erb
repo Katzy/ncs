@@ -13,9 +13,11 @@
                 <th class="col-md-1">Team Name</th>
                 <th class="col-md-1">Section</th>
                 <th class="col-md-1">Coach</th>
+                <% if current_user.admin? || current_user.id = @user.id %>
                 <th class="col-md-1">Cell</th>
                 <th class="col-md-1">Email</th>
                 <th class="col-md-1">Edit Team Info</th>
+                <% end %>
               </tr>
             </thead>
             <tbody>
