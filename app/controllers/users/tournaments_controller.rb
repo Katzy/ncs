@@ -27,7 +27,7 @@ module Users
 
       respond_to do |format|
         if @tournament.save
-          format.html { redirect_to team_tournaments_path, notice: 'tournament was successfully created.' }
+          format.html { redirect_to user_wrestlers_path(@user), notice: 'tournament was successfully created.' }
           format.json { render action: 'index', status: :created, location: @tournament }
           # added:
           format.js   { render action: 'index', status: :created, location: @tournament }
@@ -58,7 +58,7 @@ module Users
     def destroy
       @tournament = tournament.find_by_id(params[:id])
       @tournament.destroy
-      redirect_to users_home_path(@user)
+      redirect_to user_wrestlers_path(@user)
     end
 
     private
