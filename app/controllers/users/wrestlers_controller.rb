@@ -9,7 +9,7 @@ module Users
       wrestlers = @user.wrestlers.order('weight ASC') # specifically for csv
       @wrestlers = @user.wrestlers.order('weight ASC') # for index
       @wrestler = @user.wrestlers.new
-      @tournaments = @user.tournaments.order('name ASC')
+      @tournaments = @user.tournaments.order('id ASC')
       @tournament = @user.tournaments.new
       respond_to do |format|
         format.html
