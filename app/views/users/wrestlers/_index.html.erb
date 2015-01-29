@@ -3,6 +3,7 @@
   <h1>Wrestlers</h1>
  <% if current_user.admin? %> |
   <p>
+ ***  <%= link_to "NO ENTRY FILL", no_entry_path(@user) %> ***
     Sort by:
       <%= link_to "School", wrestlers_sort_by_school_path %> |
       <%= link_to "Weight", wrestlers_path %> |
