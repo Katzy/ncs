@@ -36,19 +36,21 @@
       end
 
       def update
+        @user = current_user
        @tournament = Tournament.find(params[:id])
   #      @tournament = team.tournaments.find(params[:id])
         if @tournament.update(tournament_params)
-          redirect_to users_home_path
+          redirect_to user_wrestlers_path(@user)
         else
           render :edit
         end
       end
 
       def destroy
+        @user = current_user
         @tournament = Tournament.find(params[:id])
         @tournament.destroy
-        redirect_to users_home_path(@user)
+        redirect_to user_wrestlers_path(@user)
       end
 
       private
