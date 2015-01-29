@@ -91,7 +91,7 @@
   </div>
 <div class="add_wrestler_button">
   <% if current_user.admin? || current_user.id == @user.id %>
-    <h3><button type="button" class="btn-large btn-default"><%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %></button></h3><br><br><br>
+    <h3><%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %></h3><br><br><br>
   <% end %>
 </div>
 <div class="modal fade" id="new_user_wrestler_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
