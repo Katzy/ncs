@@ -48,7 +48,7 @@
             </button>
             <ul class="dropdown-menu scrollable-menu" role="menu">
               <% if current_user.admin? || current_user.school != "" %>
-                <li><%= link_to "ENTER MY TEAM", users_home_path %></li>
+                <li><%= link_to "ENTER MY TEAM", user_wrestlers_path(current_user) %></li>
               <% end %>
               <li><%= link_to "VIEW OTHER TEAMS", users_path %></li>
               <li class="divider"></li>

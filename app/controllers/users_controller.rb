@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       if current_user.admin?
         redirect_to users_path
       else
-        redirect_to users_home_path
+        redirect_to user_wrestlers_path(@user)
       end
     else
       render :edit

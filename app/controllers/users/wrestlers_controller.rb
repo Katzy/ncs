@@ -53,7 +53,7 @@ module Users
 
       respond_to do |format|
         if @wrestler.save
-          format.html { redirect_to team_wrestlers_path, notice: 'wrestler was successfully created.' }
+          format.html { redirect_to user_wrestlers_path, notice: 'wrestler was successfully created.' }
           format.json { render action: 'index', status: :created, location: @wrestler }
           # added:
           format.js   { render action: 'index', status: :created, location: @wrestler }
