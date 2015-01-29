@@ -49,7 +49,7 @@ module Users
       @user = User.find(params[:user_id])
       @tournament = @user.tournaments.find(:id)
       if @tournament.update(tournament_params)
-        redirect_to users_home_path(@user)
+        redirect_to user_wrestlers_path(@user)
       else
         render :edit
       end
