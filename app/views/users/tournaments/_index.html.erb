@@ -25,11 +25,11 @@
               <% end %>
             </tbody>
           </table>
-        <div class="new-tourney-button">
+        <div class="tourney-button">
           <% if current_user.admin? || current_user.id == @user.id %>
-    <h3> <ul> ======>  <button type="button" class="btn-large btn-default"><%= link_to 'CLICK HERE', '#new_user_tournament_modal', 'data-toggle' => 'modal' %></button>  <====== </ul>
-    <ul>TO ADD 2014-15 TOURNAMENTS</ul></h3>
-  <% end %>
+            <h3> <ul> ======>  <button type="button" class="btn-large btn-default"><%= link_to 'CLICK HERE', '#new_user_tournament_modal', 'data-toggle' => 'modal' %></button>  <====== </ul>
+          <ul>TO ADD 2014-15 TOURNAMENTS</ul></h3>
+          <% end %>
         </div>
 
         <div class="add_wrestler_button">
