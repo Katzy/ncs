@@ -46,7 +46,7 @@
                 <th>T8</th>
 
                   <th>Comments</th>
-                   <% if current_user.admin? || current_user.id == @user.id %>
+                   <% if current_user.admin?  %>
                   <th class="col-md-0">Edit Wrestler</th>
                   <th class="col-md-0">Delete Wrestler</th>
                 <% end %>
