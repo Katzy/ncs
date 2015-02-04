@@ -3,8 +3,8 @@ class WrestlersController < ApplicationController
 
   def index
 
-    @wrestlers = Wrestler.order('weight ASC')
-    wrestlers = Wrestler.order('weight ASC')  # for csv format
+    @wrestlers = Wrestler.order('weight ASC, wins DESC')
+    wrestlers = Wrestler.order('weight ASC, wins DESC')  # for csv format
 
 
     respond_to do |format|
