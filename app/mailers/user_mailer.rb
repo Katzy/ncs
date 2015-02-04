@@ -16,18 +16,18 @@ class UserMailer < ActionMailer::Base
   def wrestler_updated(user)
     @user = user
 
-    mail(to: ["scottalankatz@gmail.com", "lhkatz@pacbell.net"], subject: "Wrestler Info Updated")
+    mail(to: ["scottalankatz@gmail.com", "lhkatz@pacbell.net", "randall.e.katz@gmail.com"], subject: "Wrestler Info Updated")
   end
 
   def wrestler_added(user)
     @user = user
 
-    mail(to: ["scottalankatz@gmail.com", "lhkatz@pacbell.net"], subject: "Wrestler Added")
+    mail(to: ["scottalankatz@gmail.com", "lhkatz@pacbell.net", "randall.e.katz@gmail.com"], subject: "Wrestler Added")
   end
 
   def wrestler_deleted(user)
     @user = user
 
-    mail(to: ["scottalankatz@gmail.com", "lhkatz@pacbell.net"], subject: "Wrestler Deleted")
+    mail(to: ["scottalankatz@gmail.com", "lhkatz@pacbell.net", "randall.e.katz@gmail.com"], subject: "Wrestler Deleted")
   end
 end
