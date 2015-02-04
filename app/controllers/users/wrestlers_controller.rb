@@ -49,10 +49,11 @@ module Users
       @wrestler = @user.wrestlers.new(wrestler_params)
       @wrestler.abbreviation = @user.abbreviation
       @wrestler.school = @user.school
-
+      user = current_user
 
       respond_to do |format|
         if @wrestler.save
+          UserMailer.wrestler_added(user).deliver
           format.html { redirect_to user_wrestlers_path, notice: 'wrestler was successfully created.' }
           format.json { render action: 'index', status: :created, location: @wrestler }
           # added:
@@ -90,8 +91,10 @@ module Users
     end
 
     def destroy
+      user = current_user
       @wrestler = wrestler.find_by_id(params[:id])
       @wrestler.destroy
+      UserMailer.wrestler_deleted(user).deliver
       redirect_to wrestlers_path
     end
 

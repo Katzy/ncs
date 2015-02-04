@@ -54,7 +54,9 @@
             </thead>
             <tbody>
               <% @wrestlers.each do |wrestler, user| %>
-                <%= render partial: '/users/wrestlers/table_row', locals: { wrestler: wrestler, user: user} %>
+                <% if wrestler.first_name != "NO ENTRY"  %>
+                  <%= render partial: '/users/wrestlers/table_row', locals: { wrestler: wrestler, user: user} %>
+                <% end %>
               <% end %>
             </tbody>
           </table>

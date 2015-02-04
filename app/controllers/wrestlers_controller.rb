@@ -42,10 +42,11 @@ class WrestlersController < ApplicationController
   def create
     @team = Team.find_by_params(params[:school])
     @wrestler = team.wrestlers.create(wrestler_params)
+    user = current_user
 
     respond_to do |format|
       if @wrestler.save
-
+        UserMailer.wrestler_added(user).deliver
         format.html { redirect_to team_path, notice: 'wrestler was successfully created.' }
         format.json { render action: 'show', status: :created, location: @wrestler }
         # added:
@@ -84,8 +85,10 @@ class WrestlersController < ApplicationController
   end
 
   def destroy
+    user = current_user
     @wrestler = Wrestler.find(params[:id])
     @wrestler.destroy
+    UserMailer.wrestler_deleted(user).deliver
     redirect_to :back
   end
 
