@@ -33,9 +33,9 @@
             <tbody>
               <% @users.each do |user| %>
                 <% if current_user.admin? %>
-                  <%= render partial: 'users/shared/table_row', locals: { user: user } %>
+                  <%= render partial: 'users/table_row', locals: { user: user } %>
                 <% elsif user.school != "" %>
-                  <%= render partial: 'users/shared/table_row', locals: { user: user } %>
+                  <%= render partial: 'users/table_row', locals: { user: user } %>
                 <% end %>
               <% end %>
             </tbody>

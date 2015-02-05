@@ -3,6 +3,9 @@
   <td><%= user.school %></td>
   <td><%= user.section %></td>
   <td><%= user.name %></td>
+
+
+    <td><%= link_to "Wrestlers", user_wrestlers_path(user) %></td>
     <% if current_user.admin? %>
     <td><%= user.cell %></td>
     <td><%= user.email %></td>
