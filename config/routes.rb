@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'information/results_prior_years' => 'information#results_prior_years'
 
-  get 'information/champions_1990_to_2013' => 'information#champions_1990_to_2013'
+  get 'public/MSJ_2015_Champions.pdf' => 'information#champions_1990_to_2013'
 
   get 'wrestlers/sort_by_school' => 'wrestlers#sort_by_school'
 
