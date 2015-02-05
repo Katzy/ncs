@@ -1,0 +1,36 @@
+<div class="team-name">
+  <h3>TEAMS ENTERED</h3>
+
+
+</div>
+<div class="container" ng-view="">
+  <div class="row">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover ">
+            <thead>
+              <tr>
+               <th class="col-md-1">Team Name</th>
+                <th class="col-md-1">Section</th>
+                <th class="col-md-1">Coach</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+              <tr>
+               <td><%= user.school %></td>
+                <td><%= user.section %></td>
+                <td><%= user.name %></td>
+                </tr>
+
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

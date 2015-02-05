@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'information/about' => 'information#about'
 
-  get 'information/teams' => 'information#teams'
+  get 'information/teams_entered' => 'information#teams_entered'
 
   get 'information/schedule' => 'information#schedule'
 
