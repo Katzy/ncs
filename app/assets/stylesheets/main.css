@@ -106,11 +106,7 @@ div.teams {
 
 }
 
-.container .brackets {
 
-  font-size: 25px;
-  vertical-align: top;
-}
 
 body {
 
@@ -126,6 +122,12 @@ body {
   *zoom:1;
   vertical-align: top;
 
+}
+
+.container .brackets {
+  height: 100%;
+  font-size: 25px;
+  vertical-align: middle;
 }
 
 .container h4 {
