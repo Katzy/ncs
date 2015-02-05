@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'information/teams' => 'information#teams'
 
+  get 'information/schedule' => 'information#schedule'
+
   get 'information/entry_information' => 'information#entry_information'
 
   get 'information/map_to_msj' => 'information#map_to_msj'

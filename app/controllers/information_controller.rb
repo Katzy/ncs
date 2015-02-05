@@ -16,6 +16,9 @@ class InformationController < ApplicationController
   def entry_information
   end
 
+  def schedule
+  end
+
   def map_to_msj
   end
 
