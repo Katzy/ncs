@@ -101,9 +101,15 @@ div.teams {
 }
 
 .container {
-  font-size: 19px;
+  font-size: 15px;
   width: 100%;
 
+}
+
+.container .brackets {
+
+  font-size: 25px;
+  vertical-align: top;
 }
 
 body {
