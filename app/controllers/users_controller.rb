@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @tournament = @user.tournaments.new
     @tournaments = @user.tournaments.order('id ASC')
     @number = 1
+    @list = ['C', 'CC', 'LA', 'N', 'NC', 'O', 'S', 'SD', 'SF', 'SJ', 'OTHER']
   end
 
   # def send
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @teams = Team.all
+    @list = ['C', 'CC', 'LA', 'N', 'NC', 'O', 'S', 'SD', 'SF', 'SJ', 'OTHER SCHOOLIO']
   end
 
   def edit

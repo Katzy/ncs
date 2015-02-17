@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   resources :users, except: :create do
     resources :wrestlers, controller: "users/wrestlers"
-    resources :tournaments, controller: "users/tournaments"
+
   end
 
   resources :teams, only: [:index]
