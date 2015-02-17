@@ -139,8 +139,13 @@ body {
 
   text-align: center;
   float: none;
-  color: green;
+  color: #90050a;
 
+}
+
+.banner-2 {
+
+  color: #fb8720;
 }
 
 .nav .banner {
@@ -316,3 +321,22 @@ table {
 
 
 }
+
+a:link {
+
+  color: black;
+
+}
+
+a:visited {
+
+  color: #ae3838;
+
+}
+
+a:hover {
+
+  color: #fb8720;
+
+}
+
