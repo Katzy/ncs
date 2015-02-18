@@ -25,8 +25,8 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.order('school Asc')
-    users = User.order('school Asc')
+    @users = User.order('league Asc')
+    users = User.order('league Asc')
     respond_to do |format|
       format.html
       format.csv { send_data users.to_csv }
@@ -96,12 +96,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation, :school, :abbreviation, :cell, :section)
-  end
-
-  def team_params
-
-    params.require(:team).permit(:school, :_106, :_113, :_120, :_126, :_132, :_138, :_145, :_152, :_160, :_170, :_182, :_195, :_220, :_285)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation, :cell, :league)
   end
 
 end

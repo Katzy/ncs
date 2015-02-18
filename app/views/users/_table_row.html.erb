@@ -1,9 +1,7 @@
 
 <tr>
-  <td><%= user.school %></td>
-  <td><%= user.section %></td>
+  <td><%= user.league %></td>
   <td><%= user.name %></td>
-
 
     <td><%= link_to "Wrestlers (#{user.wrestlers.count})", user_wrestlers_path(user) %></td>
     <% if current_user.admin? %>

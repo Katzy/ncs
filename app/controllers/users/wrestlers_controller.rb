@@ -4,13 +4,12 @@ module Users
     def index
       @number = 1
       user = User.find(params[:user_id])
-      @teams = Team.order('name ASC')
+
       @user = User.find(params[:user_id])
       wrestlers = @user.wrestlers.order('weight ASC') # specifically for csv
       @wrestlers = @user.wrestlers.order('weight ASC') # for index
       @wrestler = @user.wrestlers.new
-      @tournaments = @user.tournaments.order('id ASC')
-      @tournament = @user.tournaments.new
+
       respond_to do |format|
         format.html
         format.csv { send_data wrestlers.to_csv, filename: user.school + '.csv' }
@@ -47,8 +46,9 @@ module Users
       @user = User.find(params[:user_id])
 
       @wrestler = @user.wrestlers.new(wrestler_params)
-      @wrestler.abbreviation = @user.abbreviation
-      @wrestler.school = @user.school
+
+      @wrestler.abbreviation = "XXX"
+
       user = current_user
 
       respond_to do |format|
@@ -102,11 +102,8 @@ module Users
     private
 
     def wrestler_params
-      params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :user_id, :tournament_id)
+      params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :league_place,  :comments, :user_id)
     end
 
-    def team_params
-      params.require(:team).permit(:school, :_106, :_113, :_120, :_126, :_132, :_138, :_145, :_152, :_160, :_170, :_182, :_195, :_220, :_285)
-    end
   end
 end

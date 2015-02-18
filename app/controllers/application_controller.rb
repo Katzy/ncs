@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def initialize_users_for_header
-    @users = User.order('school ASC')
+    @users = User.order('league ASC')
     @wrestlers = Wrestler.order('weight ASC')
 
   end

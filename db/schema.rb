@@ -11,57 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126215236) do
+ActiveRecord::Schema.define(version: 20150217230224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "teams", force: true do |t|
-    t.string  "school"
-    t.string  "_106"
-    t.string  "_113"
-    t.string  "_120"
-    t.string  "_126"
-    t.string  "_132"
-    t.string  "_138"
-    t.string  "_145"
-    t.string  "_152"
-    t.string  "_160"
-    t.string  "_170"
-    t.string  "_182"
-    t.string  "_195"
-    t.string  "_220"
-    t.string  "_285"
-    t.integer "user_id"
-  end
-
-  add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
-
-  create_table "tournaments", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "size"
-    t.integer  "user_id"
-  end
-
-  add_index "tournaments", ["user_id"], name: "index_tournaments_on_user_id", using: :btree
-
-  create_table "tournaments_users", id: false, force: true do |t|
-    t.integer "tournament_id"
-    t.integer "user_id"
-  end
-
-  add_index "tournaments_users", ["tournament_id"], name: "index_tournaments_users_on_tournament_id", using: :btree
-  add_index "tournaments_users", ["user_id"], name: "index_tournaments_users_on_user_id", using: :btree
-
-  create_table "tournaments_wrestlers", id: false, force: true do |t|
-    t.integer "tournament_id"
-    t.integer "wrestler_id"
-  end
-
-  add_index "tournaments_wrestlers", ["tournament_id"], name: "index_tournaments_wrestlers_on_tournament_id", using: :btree
-  add_index "tournaments_wrestlers", ["wrestler_id"], name: "index_tournaments_wrestlers_on_wrestler_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -78,16 +31,12 @@ ActiveRecord::Schema.define(version: 20150126215236) do
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
     t.string   "name"
-    t.string   "school",                 default: "",    null: false
-    t.string   "abbreviation",           default: "",    null: false
     t.string   "cell",                   default: "",    null: false
-    t.string   "section",                default: "",    null: false
-    t.integer  "tournament_id"
+    t.string   "league",                 default: "",    null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["tournament_id"], name: "index_users_on_tournament_id", using: :btree
 
   create_table "wrestlers", force: true do |t|
     t.datetime "created_at"
@@ -98,20 +47,12 @@ ActiveRecord::Schema.define(version: 20150126215236) do
     t.integer  "grade"
     t.integer  "wins"
     t.integer  "losses"
-    t.integer  "section_place"
-    t.integer  "state_place"
-    t.integer  "tourney1_place"
-    t.integer  "tourney2_place"
-    t.integer  "tourney3_place"
-    t.integer  "tourney4_place"
-    t.integer  "tourney5_place"
-    t.integer  "tourney6_place"
-    t.integer  "tourney7_place"
-    t.integer  "tourney8_place"
     t.text     "comments"
     t.string   "school"
     t.integer  "user_id"
-    t.string   "abbreviation",   default: "", null: false
+    t.string   "abbreviation", default: "", null: false
+    t.string   "league"
+    t.string   "league_place"
   end
 
   add_index "wrestlers", ["user_id"], name: "index_wrestlers_on_user_id", using: :btree

@@ -1,3 +1,4 @@
+<br><br>
 <div class="border-wrestler-div">
   <% modal ||= false %>
   <% remote = modal ? true : false %>
@@ -17,10 +18,19 @@
       <div class="row">
           <div class="form-group">
             <%= f.label :weight, class: 'col-sm-2 control-label' %>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <%= f.collection_select :weight, ['106', '113', '120', '126', '132', '138', '145', '152', '160', '170', '182', '195', '220', '285'], :to_s, :to_s, :include_blank => true %>
             </div>
-            Only 1 Wrestler per weight can be saved<br>
+            <%= f.label :school, class: 'col-sm-2 control-label' %>
+          <div class="col-sm-4">
+            <%= f.text_field :school, class: 'form-control' %><br>
+          </div>
+
+            <%= f.label :league_place, "League Place", class: 'col-sm-2 control-label' %>
+          <div class="col-sm-4">
+            <%= f.collection_select :league_place, ['1', '2', '3', '4/Alt 1', 'Alt 2'], :to_s, :to_s, :include_blank => true%>
+          </div>
+            <br><br>
           </div>
         </div>
 
@@ -34,6 +44,12 @@
           <div class="col-sm-4">
             <%= f.text_field :last_name, class: 'form-control' %><br>
           </div>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="form-group">
+
         </div>
       </div>
 
@@ -54,68 +70,7 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="form-group">
-          <%= f.label :section_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :section_place, class: 'form-control' %>
-          </div>
-          <%= f.label :state_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :state_place, class: 'form-control' %><br>
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <p> T1-T8 SHOULD CORRESPOND W/ THE TOURNAMENTS</p>
-        <p> YOU ENTERED ABOVE IN STEP 1 </p>
-        <div class="form-group">
-          <%= f.label :t1_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney1_place, class: 'form-control' %>
-          </div>
-          <%= f.label :t2_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney2_place, class: 'form-control' %>
-          </div>
-          <%= f.label :t3_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney3_place, class: 'form-control' %><br>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group">
-          <%= f.label :t4_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney4_place, class: 'form-control' %>
-          </div>
-          <%= f.label :t5_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney5_place, class: 'form-control' %>
-          </div>
-          <%= f.label :t6_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney6_place, class: 'form-control' %><br>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group">
-          <%= f.label :t7_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney7_place, class: 'form-control' %>
-          </div>
-          <%= f.label :t8_place, class: 'col-sm-2 control-label' %>
-          <div class="col-sm-2">
-            <%= f.text_field :tourney8_place, class: 'form-control' %><br>
-          </div>
-        </div>
-
-      </div>
 
       <div class="form-group">
         <%= f.label :comments, "Notable Wins", class: 'control-label' %><br>
@@ -126,7 +81,7 @@
       <div class="form-actions">
         <%= f.submit 'Submit', class: 'btn btn-default' %>
       </div><br>
-      If the form doesn't save, check to make sure you don't have a duplicate weight!<br><br>
+      If the form doesn't save, check to make sure you don't have a duplicate weight and league place!<br><br>
     <% end %>
   </div>
 </div>

@@ -14,25 +14,7 @@ class WrestlersController < ApplicationController
     end
   end
 
-  def sort_by_school
-    @wrestlers = Wrestler.order('school ASC')
-    wrestlers = Wrestler.order('school ASC')
-    respond_to do |format|
-      format.html
-      format.csv { send_data wrestlers.order('school ASC').to_csv }
-      format.xls { send_data wrestlers.order('school ASC').to_csv(col_sep: "\t")}
-    end
-  end
 
-  def sort_by_state_place
-    @wrestlers = Wrestler.order('state_place ASC')
-    wrestlers = Wrestler.order('state_place ASC')
-    respond_to do |format|
-      format.html
-      format.csv { send_data wrestlers.to_csv }
-      format.xls { send_data wrestlers.to_csv(col_sep: "\t")}
-    end
-  end
 
   def new
     @team = Team.find(params[:id])
@@ -73,7 +55,7 @@ class WrestlersController < ApplicationController
 
     user = current_user
     if @wrestler.update(wrestler_params)
-      UserMailer.wrestler_updated(user).deliver
+       UserMailer.wrestler_updated(user).deliver
       if current_user.admin?
         redirect_to root_url
       else

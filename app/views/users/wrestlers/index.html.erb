@@ -1,6 +1,6 @@
 
 <div class="team-name">
-  <h2><%= @user.school.upcase %></h2>
+  <h2><%= @user.league.upcase %></h2>
 </div>
 <div class="container-team" ng-view="">
   <div class="row">
@@ -33,7 +33,7 @@
 
 
 
-<%= render partial: 'users/tournaments/index', locals: { user: @user, tournaments: @tournaments } %>
+<%= render partial: 'users/shared/index', locals: { user: @user} %>
 
 
   <h3>WRESTLERS</h3>
@@ -41,7 +41,7 @@
     Download:
       <%= link_to "CSV", user_wrestlers_path(format: "csv") %> |
       <%= link_to "Excel", user_wrestlers_path(format: "xls") %>
-      <% if current_user.admin? %> |
+      <% if current_user.admin? || current_user.league != ""  %> |
 
         <%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %>
       <% end %>
@@ -62,16 +62,7 @@
                 <th>YR</th>
                 <th>W</th>
                 <th>L</th>
-                <th>SEC</th>
-                <th>ST</th>
-                <th>T1</th>
-                <th>T2</th>
-                <th>T3</th>
-                <th>T4</th>
-                <th>T5</th>
-                <th>T6</th>
-                <th>T7</th>
-                <th>T8</th>
+                <th>League Place</th>
                 <th>Comments</th>
                   <% if current_user.admin? %>
                   <th class="col-md-0">Edit Wrestler</th>
@@ -90,7 +81,7 @@
     </div>
   </div>
 <div class="add_wrestler_button">
-  <% if current_user.admin?  %>
+  <% if current_user.admin? || current_user.league != "" %>
     <h3><%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %></h3><br><br><br>
   <% end %>
 </div>
