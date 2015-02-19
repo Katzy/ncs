@@ -1,13 +1,7 @@
 <div class="team-name">
-  <h3>TEAMS ENTERED</h3>
+  <h3>LEAGUES ENTERED</h3>
 
-  <p>
-  <% if current_user.admin? %>
-    Download:
-      <%= link_to "CSV", teams_path(format: "csv") %> |
-      <%= link_to "Excel", teams_path(format: "xls") %>
-  <% end %>
-  </p>
+
 </div>
 <div class="container" ng-view="">
   <div class="row">

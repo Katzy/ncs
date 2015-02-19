@@ -1,12 +1,13 @@
 <tr>
   <td><%= wrestler.weight %></td>
+  <td><%= wrestler.league_place %></td>
   <td><%= wrestler.school %></td>
   <td><%= wrestler.first_name %></td>
   <td><%= wrestler.last_name %></td>
   <td><%= wrestler.grade %></td>
   <td><%= wrestler.wins %></td>
   <td><%= wrestler.losses %></td>
-  <td><%= wrestler.league_place %></td>
+
 
   <td><%= wrestler.comments %></td>
   <% if current_user.admin? || current_user.id == wrestler.user_id %>
