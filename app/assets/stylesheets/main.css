@@ -100,6 +100,16 @@ div.teams {
 
 }
 
+.brand {
+float: left;
+ overflow: visible;
+ width: 100%;
+ padding-top: 0;
+ padding-bottom: 0;
+ text-align: left;
+
+}
+
 .container {
   font-size: 15px;
   width: 100%;
