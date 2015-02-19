@@ -20,6 +20,7 @@ module Users
     def new
       @user = User.find(params[:user_id])
       @wrestler = @user.wrestlers.new
+
     end
 
     def create

@@ -2,7 +2,7 @@
 <div class="border-wrestler-div">
   <% modal ||= false %>
   <% remote = modal ? true : false %>
-    <%= form_for([@user, @wrestler], remote: remote, html: { role: :form, 'data-model' => 'wrestler'}) do |f| %>
+    <%= form_for(@wrestler, remote: remote, html: { role: :form, 'data-model' => 'wrestler'}) do |f| %>
       <% if @wrestler.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@wrestler.errors.count, "error") %> prohibited this wrestler from being saved:</h2>
@@ -48,29 +48,29 @@
         <div class="form-group">
           <%= f.label :school, class: 'col-sm-2 control-label' %>
           <div class="col-sm-4">
-            <% if @user.league == "BAC" %>
+            <% if @wrestler.league == "BAC" %>
               <%= f.collection_select :school, ['Athenian', 'Ca Schl Deaf', 'John Swett', 'Lick-Wilmerding', 'Liv Vly Charter', 'St. Pat - St. Vin', 'Stuart Hall'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "BVAL" %>
+            <% elsif @wrestler.league == "BVAL" %>
               <%= f.collection_select :school, ['Antioch', 'Deer Valley', 'Freedom', 'Heritage', 'Liberty', 'Pittsburg'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "CMC" %>
+            <% elsif @wrestler.league == "CMC" %>
               <%= f.collection_select :school, ['Archbishop Hanna', 'Clear Lake', 'Fort Bragg', 'Kelseyville', 'Lower Lake', 'Middletown', 'Point Arena', 'St. Helena', 'Technology', 'Upper Lake', 'Willits'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "DFAL" %>
+            <% elsif @wrestler.league == "DFAL" %>
               <%= f.collection_select :school, ['Acalanes', 'Alhambra', 'Campolindo', 'Dougherty Valley', 'Dublin', 'Las Lomas', 'Miramonte'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "DVAL" %>
+            <% elsif @wrestler.league == "DVAL" %>
               <%= f.collection_select :school, ['Berean Christian', 'Clayton Valley', 'College Park', 'Concord', 'Mt. Diablo', 'Northgate', 'Ygnacio Valley'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "EBAL" %>
+            <% elsif @wrestler.league == "EBAL" %>
               <%= f.collection_select :school, ['Amador Valley', 'California', 'De La Salle', 'Foothill', 'Granada', 'Livermore', 'Monte Vista', 'San Ramon'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "HDNL" %>
+            <% elsif @wrestler.league == "HDNL" %>
               <%= f.collection_select :school, ['Arcata', 'Del Norte', 'Eureka', 'Fortuna', 'Hoopa', 'McKinleyville', 'South Fork'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "MCAL" %>
+            <% elsif @wrestler.league == "MCAL" %>
               <%= f.collection_select :school, ['Justin Sienna', 'Marin Catholic', 'Novato', 'Redwood', 'San Marin', 'San Rafael', 'Sir Francis Drake', 'Tamalpais', 'Terra Linda'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "MVAL" %>
+            <% elsif @wrestler.league == "MVAL" %>
               <%= f.collection_select :school, ['American', 'Irvington', 'J F Kennedy', 'James Logan', 'Mission San Jose', 'Newark Memorial', 'Washington'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "NBL" %>
+            <% elsif @wrestler.league == "NBL" %>
               <%= f.collection_select :school, ['Cardinal Newman', 'Casa Grande', 'Maria Carrillo', 'Montgoery', 'Rancho Cotate', 'Santa Rosa', 'Ukiah', 'Windsor'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "SCL" %>
+            <% elsif @wrestler.league == "SCL" %>
               <%= f.collection_select :school, ['Analy', 'El Molino', 'Elsie Allen', 'Healdsburg', 'Petaluma', 'Piner', 'Sonoma Valley'], :to_s, :to_s, :include_blank => true%>
-            <% elsif @user.league == "WACC" %>
+            <% elsif @wrestler.league == "WACC" %>
               <%= f.collection_select :school, ['Albany', 'Arroyo', 'Berkeley', 'Castro Valley', 'Hayward', 'Mt. Eden', 'San Leandro', 'San Lorenzo'], :to_s, :to_s, :include_blank => true%>
             <% end %>
           </div>

@@ -44,6 +44,7 @@ class WrestlersController < ApplicationController
 
   def edit
     @wrestler = Wrestler.find(params[:id])
+
   end
 
   def show
