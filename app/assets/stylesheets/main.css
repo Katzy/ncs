@@ -106,7 +106,19 @@ div.teams {
 
 }
 
+.col-lg-4 {
 
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+
+}
+
+.col-lg-4 p {
+
+  text-align: left;
+}
 
 body {
 
