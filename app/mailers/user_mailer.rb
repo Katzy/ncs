@@ -10,7 +10,7 @@ class UserMailer < ActionMailer::Base
 
   def team_updated(user)
     @user = user
-    mail(to: "lhkatz@pacbell.net", subject: "Team Info Updated")
+    mail(to: ["scottalankatz@gmail.com", "lhkatz@pacbell.net"], subject: "Team Info Updated")
   end
 
   def wrestler_updated(user)
