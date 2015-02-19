@@ -1,4 +1,9 @@
 class InformationController < ApplicationController
+
+
+  def brackets_2014
+  end
+
   def about
   end
 
