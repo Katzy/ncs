@@ -22,7 +22,7 @@ class WrestlersController < ApplicationController
   end
 
   def create
-    @team = Team.find_by_params(params[:school])
+
     @wrestler = team.wrestlers.create(wrestler_params)
     user = current_user
 
@@ -55,7 +55,7 @@ class WrestlersController < ApplicationController
 
     user = current_user
     if @wrestler.update(wrestler_params)
-       UserMailer.wrestler_updated(user).deliver
+      # UserMailer.wrestler_updated(user).deliver
       if current_user.admin?
         redirect_to root_url
       else
@@ -70,14 +70,15 @@ class WrestlersController < ApplicationController
     user = current_user
     @wrestler = Wrestler.find(params[:id])
     @wrestler.destroy
-    UserMailer.wrestler_deleted(user).deliver
-    redirect_to :back
+    # UserMailer.wrestler_deleted(user).deliver
+    redirect_to user_wrestlers_path(user)
   end
 
   private
 
   def wrestler_params
-    params.require(:wrestler).permit(:first_name, :last_name, :weight, :grade, :wins, :losses, :section_place, :state_place, :tourney1_place, :tourney2_place, :tourney3_place, :tourney4_place, :tourney5_place, :tourney6_place, :tourney7_place, :tourney8_place, :comments, :user_id, :tournament_id)
+    params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :league_place, :comments, :user_id)
   end
+
 
 end

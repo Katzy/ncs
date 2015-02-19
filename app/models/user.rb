@@ -5,12 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :wrestlers
-  has_many :tournaments
-  has_one :team
-  # accepts_nested_attributes_for :tournaments
 
   validates :name, presence: true
-
 
 
   def self.to_csv(options = {})

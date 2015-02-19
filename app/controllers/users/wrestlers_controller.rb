@@ -12,30 +12,10 @@ module Users
 
       respond_to do |format|
         format.html
-        format.csv { send_data wrestlers.to_csv, filename: user.school + '.csv' }
-        format.xls { send_data wrestlers.to_csv(col_sep: "\t"), filename: user.school + '.xls' }
+        format.csv { send_data wrestlers.to_csv, filename: user.league + '.csv' }
+        format.xls { send_data wrestlers.to_csv(col_sep: "\t"), filename: user.league + '.xls' }
       end
     end
-
-    def no_entry
-      weights = ['106', '113', '120', '126', '132', '138', '145', '152', '160', '170', '182', '195', '220', '285']
-      team_weights = []
-      @user = User.find(params[:user_id])
-      @wrestlers = @user.wrestlers.order('weight ASC')
-      @wrestlers.each do |wrestler|
-        team_weights.push(wrestler.weight.to_s)
-      end
-
-      weights = weights - team_weights
-
-      weights.each do |weight|
-        @wrestler = @user.wrestlers.create([:weight => weight.to_i, :last_name => NO_ENTRY, :first_name => NO_ENTRY])
-      end
-
-    end
-
-
-
 
     def new
       @user = User.find(params[:user_id])
@@ -46,8 +26,8 @@ module Users
       @user = User.find(params[:user_id])
 
       @wrestler = @user.wrestlers.new(wrestler_params)
+      @wrestler.league = @user.league
 
-      @wrestler.abbreviation = "XXX"
 
       user = current_user
 

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :authorize_admin, only: :create
   before_filter :authenticate_user!, :only => [:edit, :update]
-  before_filter :skip_password_attribute, only: :update
+  before_filter :skip_password_attribute, :only => [:edit, :update]
 
   def home
     @user = current_user
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
       # @team.school = @user.school
       # @team.user_id = @user.id
       # @team = Team.create(team_params)
-      UserMailer.new_user(@user).deliver
+     # UserMailer.new_user(@user).deliver
       redirect_to root_url, notice: "User was successfully created"
     else
       render :new

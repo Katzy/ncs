@@ -10,9 +10,9 @@
           <table class="table table-bordered table-hover" id="teams_table">
             <thead>
               <tr>
-                <th class="col-md-1">Team Name</th>
-                <th class="col-md-1">Section</th>
-                <th class="col-md-1">Coach</th>
+                <th class="col-md-1">League</th>
+                <th class="col-md-1">League Rep</th>
+
                 <% if current_user.admin? %>
                 <th class="col-md-1">Cell</th>
                 <th class="col-md-1">Email</th>
@@ -33,7 +33,7 @@
 
 
 
-<%= render partial: 'users/shared/index', locals: { user: @user} %>
+
 
 
   <h3>WRESTLERS</h3>
@@ -41,7 +41,7 @@
     Download:
       <%= link_to "CSV", user_wrestlers_path(format: "csv") %> |
       <%= link_to "Excel", user_wrestlers_path(format: "xls") %>
-      <% if current_user.admin? || current_user.league != ""  %> |
+      <% if current_user.admin? || current_user.league == @user.league  %> |
 
         <%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %>
       <% end %>
@@ -81,7 +81,7 @@
     </div>
   </div>
 <div class="add_wrestler_button">
-  <% if current_user.admin? || current_user.league != "" %>
+  <% if current_user.admin? || current_user.league == @user.league %>
     <h3><%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %></h3><br><br><br>
   <% end %>
 </div>

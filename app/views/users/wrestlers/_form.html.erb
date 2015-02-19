@@ -56,14 +56,14 @@
       <div class="row">
         <div class="form-group">
           <%= f.label :grade, "Grade (9-12)", class: 'col-sm-2 control-label' %>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
               <%= f.collection_select :grade, ['9', '10', '11', '12'], :to_s, :to_s %>
             </div>
-          <%= f.label :wins, class: 'col-sm-2 control-label' %>
+          <%= f.label :wins, "W", class: 'col-sm-1 control-label' %>
           <div class="col-sm-2">
             <%= f.text_field :wins, class: 'form-control' %>
           </div>
-          <%= f.label :losses, class: 'col-sm-2 control-label' %>
+          <%= f.label :losses, "L", class: 'col-sm-1 control-label' %>
           <div class="col-sm-2">
             <%= f.text_field :losses, class: 'form-control' %><br>
           </div>
