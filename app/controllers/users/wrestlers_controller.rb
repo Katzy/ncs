@@ -6,8 +6,8 @@ module Users
       user = User.find(params[:user_id])
 
       @user = User.find(params[:user_id])
-      wrestlers = @user.wrestlers.order('weight ASC') # specifically for csv
-      @wrestlers = @user.wrestlers.order('weight ASC') # for index
+      wrestlers = @user.wrestlers.order('weight ASC, league_place ASC') # specifically for csv
+      @wrestlers = @user.wrestlers.order('weight ASC, league_place ASC') # for index
       @wrestler = @user.wrestlers.new
 
       respond_to do |format|
