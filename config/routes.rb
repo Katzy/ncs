@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'information/brackets_2014' => 'information#brackets_2014'
 
+  get 'information/seeds' => 'information#seeds'
+
   get 'information/about' => 'information#about'
 
   get 'information/teams_entered' => 'information#teams_entered'

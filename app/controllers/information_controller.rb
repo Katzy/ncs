@@ -1,6 +1,12 @@
 class InformationController < ApplicationController
 
 
+  def seeds
+    @wrestlers = Wrestler.where("seed > 0")
+    @wrestlers.order('weight ASC, seed ASC')
+  end
+
+
   def brackets_2014
   end
 
