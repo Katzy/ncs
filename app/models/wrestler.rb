@@ -5,6 +5,8 @@ class Wrestler < ActiveRecord::Base
   validates :first_name, presence: true, null: false
   validates :last_name, presence: true, null: false
   validates :weight, presence: true, null: false
+  validates :wins, presence: true, null: false
+  validates :losses, presence: true, null: false
   validates_uniqueness_of :league_place, scope: [:weight, :league]
   validates_uniqueness_of :school, scope: :weight
 
