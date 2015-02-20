@@ -3,8 +3,8 @@ class WrestlersController < ApplicationController
 
   def index
 
-    @wrestlers = Wrestler.order('weight ASC, wins DESC')
-    wrestlers = Wrestler.order('weight ASC, wins DESC')  # for csv format
+    @wrestlers = Wrestler.order('weight ASC, league_place ASC')
+    wrestlers = Wrestler.order('weight ASC, league_place ASC')  # for csv format
 
 
     respond_to do |format|
@@ -78,7 +78,7 @@ class WrestlersController < ApplicationController
   private
 
   def wrestler_params
-    params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :league_place, :comments, :user_id)
+    params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :league_place, :comments, :seed, :user_id)
   end
 
 

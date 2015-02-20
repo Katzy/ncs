@@ -83,7 +83,7 @@ module Users
     private
 
     def wrestler_params
-      params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :league_place,  :comments, :user_id)
+      params.require(:wrestler).permit(:school, :first_name, :last_name, :weight, :grade, :wins, :losses, :league_place,  :comments, :seed, :user_id)
     end
 
   end
