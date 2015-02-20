@@ -98,7 +98,7 @@
           <div class="form-group">
             <%= f.label :seed, class: 'col-sm-2 control-label' %>
               <div class="col-sm-4">
-                <%= f.collection_select :seed, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'], :to_s, :to_s %>
+                <%= f.collection_select :seed, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'], :to_s, :to_s, :include_blank => true %>
               </div>
           </div>
         </div><br>
