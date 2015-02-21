@@ -28,10 +28,7 @@
                 <th>YR</th>
                 <th>W</th>
                 <th>L</th>
-                 <% if current_user.admin?  %>
-                   <th class="col-md-0">Edit Wrestler</th>
-                   <th class="col-md-0">Delete Wrestler</th>
-                 <% end %>
+
               </tr>
             </thead>
             <tbody>
@@ -46,8 +43,23 @@
 
             </script>
               <% @wrestlers.each do |wrestler, user| %>
-                <% if wrestler.first_name != "     NO ENTRY"  %>
-                  <%= render partial: '/users/wrestlers/table_row', locals: { wrestler: wrestler, user: user} %>
+                <% if @weight == wrestler.weight %>
+                 <%= render partial: '/wrestlers/table_row', locals: { wrestler: wrestler, user: user} %>
+                 <% else  %>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                 <% @weight = wrestler.weight %>
+                <%= render partial: '/wrestlers/table_row', locals: { wrestler: wrestler, user: user} %>
                 <% end %>
               <% end %>
             </tbody>

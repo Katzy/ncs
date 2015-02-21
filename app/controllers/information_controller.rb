@@ -4,6 +4,7 @@ class InformationController < ApplicationController
   def seeds
     @wrestlers = Wrestler.where("seed >0 AND seed<9")
     @wrestlers = @wrestlers.order('weight ASC, seed ASC')
+    @weight = @wrestlers.first.weight
   end
 
 
