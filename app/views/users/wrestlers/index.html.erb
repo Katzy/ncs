@@ -70,9 +70,12 @@
                   <th class="col-md-0">Edit Wrestler</th>
                   <th class="col-md-0">Delete Wrestler</th>
                 <% end %>
+
               </tr>
             </thead>
+
             <tbody>
+
               <% @wrestlers.each do |wrestler, user| %>
                 <%= render partial: '/users/wrestlers/table_row', locals: { wrestler: wrestler, user: user} %>
               <% end %>

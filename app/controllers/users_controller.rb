@@ -8,10 +8,7 @@ class UsersController < ApplicationController
     @user = current_user
     @wrestlers = @user.wrestlers.order('weight ASC')
     @wrestler = @user.wrestlers.new
-    @tournament = @user.tournaments.new
-    @tournaments = @user.tournaments.order('id ASC')
-    @number = 1
-    @list = ['C', 'CC', 'LA', 'N', 'NC', 'O', 'S', 'SD', 'SF', 'SJ', 'OTHER']
+
   end
 
   # def send

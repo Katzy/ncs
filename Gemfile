@@ -17,6 +17,9 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'tzinfo-data'
 
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+
 gem 'turbolinks'
 
 gem 'mail'

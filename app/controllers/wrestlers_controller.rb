@@ -11,6 +11,7 @@ class WrestlersController < ApplicationController
       format.html
       format.csv { send_data wrestlers.to_csv }
       format.xls { send_data wrestlers.to_csv(col_sep: "\t")}
+
     end
   end
 

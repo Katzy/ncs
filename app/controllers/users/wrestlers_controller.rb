@@ -14,6 +14,7 @@ module Users
         format.html
         format.csv { send_data wrestlers.to_csv, filename: user.league + '.csv' }
         format.xls { send_data wrestlers.to_csv(col_sep: "\t"), filename: user.league + '.xls' }
+
       end
     end
 

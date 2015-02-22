@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :initialize_users_for_header
 
-  @BAC = ["Athenian", "CA School Deaf", "John Swett", "Lick Wilmerding", "Livermore Valley Charter", "St. Patrick - St. Vincent", "Stuart Hall"]
-  @BVAL = ["Antioch", "Deer Valley", "Freedom", "Heritage", "Liberty", "Pittsburg"]
 
   def configure_devise_permitted_parameters
     registration_params = [:email, :name, :password, :password_confirmation]
