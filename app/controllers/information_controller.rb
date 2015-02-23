@@ -8,10 +8,7 @@ class InformationController < ApplicationController
     if @wrestlers.count > 0
       @weight = @wrestlers.first.weight
     end
-    respond_to do |format|
-        format.html
-        format.csv { send_data wrestlers.to_csv, filename: seeds + '.csv' }
-      end
+
   end
 
 
