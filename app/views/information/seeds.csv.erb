@@ -1,0 +1,5 @@
+<%- headers = ['Seed', 'Weight', 'School', 'Abbreviation', 'Last', 'First', 'Grade', 'Wins', 'Losses'] -%>
+<%= CSV.generate_line headers %>
+<%- @wrestlers.each do |wrestler| -%>
+  <%= CSV.generate_line([wrestler.seed, wrestler.weight, wrestler.school, wrestler.abbreviation, wrestler.last_name, wrestler.first_name, wrestler.grade, wrestler.wins, wrestler.losses]) %>
+<%- end -%>

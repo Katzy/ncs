@@ -59,7 +59,7 @@ class WrestlersController < ApplicationController
     if @wrestler.update(wrestler_params)
      # UserMailer.wrestler_updated(user).deliver
       if current_user.admin?
-        redirect_to root_url
+        redirect_to wrestlers_path
       else
         redirect_to user_wrestlers_path(user)
       end
