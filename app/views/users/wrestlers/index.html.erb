@@ -41,7 +41,7 @@
     Download:
       <%= link_to "CSV", user_wrestlers_path(format: "csv") %> |
       <%= link_to "Excel", user_wrestlers_path(format: "xls") %>
-      <% if current_user.admin? || current_user.league == @user.league  %> |
+      <% if current_user.admin?  %> |
 
         <%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %>
       <% end %>
@@ -86,7 +86,7 @@
     </div>
   </div>
 <div class="add_wrestler_button">
-  <% if current_user.admin? || current_user.league == @user.league %>
+  <% if current_user.admin?  %>
     <h3><%= link_to 'ADD WRESTLER', '#new_user_wrestler_modal', 'data-toggle' => 'modal' %></h3><br><br><br>
   <% end %>
 </div>
