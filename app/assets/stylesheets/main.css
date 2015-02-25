@@ -139,7 +139,7 @@ float: left;
 
 }
 
-.col-xs-4 {
+.col-lg-4 {
 
   margin-left: auto;
   margin-right: auto;
@@ -148,6 +148,17 @@ float: left;
 
   vertical-align: center;
 
+}
+
+.row .col-xs-4 {
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+
+  vertical-align: center;
+
+  font-size: 12px;
 }
 
 .pull-left {
@@ -242,10 +253,11 @@ text-align: center;
 
 .navbar {
 
-  padding: 12px;
+  padding: 5px;
   padding-bottom: 0px;
 
 }
+
 
 .team-name {
 
@@ -402,6 +414,13 @@ table {
   text-shadow: 0px 0px 3px  #FF0000, 0 0 5px #0000FF;
 
   font-size: 1.05em;
+
+
+}
+.navbar-fixed-bottom {
+
+  padding: 0px;
+  padding-top: 5px;
 
 
 }
