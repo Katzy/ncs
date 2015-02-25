@@ -1,68 +1,45 @@
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-bottom hidden-xs hidden-sm" role="navigation">
   <div class="ncs-brackets">
-  hosted by JAMES LOGAN HIGH SCHOOL, Union City<br>
+    hosted by JAMES LOGAN HIGH SCHOOL, Union City<br>
   <div class="row">
-    <div class="col-xs-4 ">
+  <div class="col-xs-4 ">
     <a><%= link_to '2015 SEEDS  ', information_seeds_path %></a>
-    </div>
-    <div class="col-xs-4 ">
+  </div>
+  <div class="col-xs-4 ">
     <a><%= link_to '  2015 SCHEDULE  ', "http://cifncs.org/sports/wrestling/files/2015%20NCS%20Schedule%20-%20Semis%202%20Mat.pdf" %></a>
-    </div>
-    <div class="col-xs-4 ">
+  </div>
+  <div class="col-xs-4 ">
 
     <a><%= link_to '  2014 BRACKETS', asset_path("2014brackets.pdf"), :class => "links" %></a>
-    </div>
   </div>
 
-    <!-- <div class="ncs-brackets">
-    <a><%= link_to '106' %> / </a>
-    <a><%= link_to '113' %> /</a>
-    <a><%= link_to '120' %> /</a>
-    <a><%= link_to '126' %> /</a>
-    <a><%= link_to '132' %> /</a>
-    <a><%= link_to '138' %> /</a>
-    <a><%= link_to '145' %> /</a>
-    <a><%= link_to '152' %> /</a>
-    <a><%= link_to '160' %> /</a>
-    <a><%= link_to '170' %> /</a>
-    <a><%= link_to '182' %> /</a>
-    <a><%= link_to '195' %> /</a>
-    <a><%= link_to '220' %> /</a>
-    <a><%= link_to '285' %> /</a>
-    <a><%= link_to "Team Scores"%></a>
-    </div> -->
-<div class="container">
+
+  <div class="container">
 
     <div id="nav">
-<!-- <a><%= link_to 'ALL BRACKETS', "https://dl.dropboxusercontent.com/u/61981544/all.pdf" %></a>
-      <a><%= link_to '106', "https://dl.dropboxusercontent.com/u/61981544/106.pdf" %></a>
-      <a><%= link_to '113', "https://dl.dropboxusercontent.com/u/61981544/113.pdf" %></a>
-      <a><%= link_to '120', "https://dl.dropboxusercontent.com/u/61981544/120.pdf" %></a>
-      <a><%= link_to '126', "https://dl.dropboxusercontent.com/u/61981544/126.pdf" %></a>
-      <a><%= link_to '132', "https://dl.dropboxusercontent.com/u/61981544/132.pdf" %></a>
-      <a><%= link_to '138', "https://dl.dropboxusercontent.com/u/61981544/138.pdf" %></a>
-      <a><%= link_to '145', "https://dl.dropboxusercontent.com/u/61981544/145.pdf" %></a>
-      <a><%= link_to '152', "https://dl.dropboxusercontent.com/u/61981544/152.pdf" %></a>
-      <a><%= link_to '160', "https://dl.dropboxusercontent.com/u/61981544/160.pdf" %></a>
-      <a><%= link_to '170', "https://dl.dropboxusercontent.com/u/61981544/170.pdf" %></a>
-      <a><%= link_to '182', "https://dl.dropboxusercontent.com/u/61981544/182.pdf" %></a>
-      <a><%= link_to '195', "https://dl.dropboxusercontent.com/u/61981544/195.pdf" %></a>
-      <a><%= link_to '220', "https://dl.dropboxusercontent.com/u/61981544/220.pdf" %></a>
-      <a><%= link_to '285', "https://dl.dropboxusercontent.com/u/61981544/285.pdf" %></a>
-
-       <a><%= link_to "Team Scores & Placers", "https://dl.dropboxusercontent.com/u/61981544/team.pdf" %></a> -->
-      <!-- <a><%= link_to "About", information_about_path %></a>
-      <a><%= link_to "Leagues / Schools", information_teams_entered_path %></a>
-      <a><%= link_to "Entry Information", information_entry_information_path %></a>
-      <a><%= link_to "2015 Schedule", information_schedule_path %></a>
-
-        <a><%= link_to "Map to MSJ", information_map_to_msj_path %></a>
-
-      <a><%= link_to "Hotel Info", information_hotels_path %></a>
-      <a><%= link_to "Full Results & Brackets - Prior Years", information_results_prior_years_path %></a>
-     <a><%= link_to "Champions by weight class 1990-2013", "http://msjwrestlingtournament.com/Results/MSJChamps2013.pdf" %></a>
-      </div>
-      <h4>The road to Bakersfield!</h4> -->
+    </div>
   </div>
+</nav>
+
+<nav class="navbar navbar-default navbar-fixed-bottom visible-xs visible-sm" role="navigation">
+  <div class="ncs-brackets">
+    hosted by JAMES LOGAN HIGH SCHOOL<br>
+  <div class="row">
+  <div class="col-xs-4 ">
+    <a><%= link_to 'SEEDS  ', information_seeds_path %></a>
+  </div>
+  <div class="col-xs-4 ">
+    <a><%= link_to 'SCHEDULE  ', "http://cifncs.org/sports/wrestling/files/2015%20NCS%20Schedule%20-%20Semis%202%20Mat.pdf" %></a>
+  </div>
+  <div class="col-xs-4 ">
+
+    <a><%= link_to '2014 RESULTS', asset_path("2014brackets.pdf"), :class => "links" %></a>
+  </div>
+
+
+  <div class="container">
+
+    <div id="nav">
+    </div>
   </div>
 </nav>
