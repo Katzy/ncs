@@ -135,6 +135,7 @@ float: left;
   display: inline-block;
   vertical-align: right;
   float: right;
+  font-size: 20px;
 
 }
 
@@ -261,6 +262,11 @@ text-align: center;
 
 }
 
+.ncs-brackets-footer {
+
+  font-size: 15px;
+
+}
 .team-name  {
 
   float: center;
