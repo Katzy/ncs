@@ -150,6 +150,11 @@ float: left;
 
 }
 
+div.col-lg-4 a {
+
+  font-size: 20px;
+}
+
 .row .col-xs-4 {
   margin-left: auto;
   margin-right: auto;
@@ -202,6 +207,13 @@ body {
 .button-link {
 
   text-align: center;
+
+}
+
+.container .visible-xs .img-circle  {
+
+  max-height: 100px;
+  max-width: 100px;
 
 }
 
