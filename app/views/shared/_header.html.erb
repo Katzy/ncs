@@ -1,7 +1,7 @@
  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 vcenter">
+      <div class="col-xs-2 vcenter">
         <div class="pull-left">
           <div style="height:3em">
           <% if user_signed_in? %> Welcome <%= current_user.name %><br>
@@ -11,15 +11,17 @@
         </div>
       </div><!--
 
-      --><div class="col-lg-4 vcenter">
+      --><div class="col-xs-6 vcenter">
         <div class="banner">
-          <h3>NCS / Les Schwab Tires Wrestling Championships</h3>
-          <div class="banner-2"><h3>Presented by Farmers</h3></div>
+          <div class="vcenter-2">
+          NCS / Les Schwab Tires Wrestling Championships
+         <h3>Presented by Farmers</h3>
           Feb 27-28, 2015
+        </div>
         </div>
       </div><!--
 
-      --><div class="col-lg-4 vcenter">
+      --><div class="col-xs-4 vcenter">
         <div class="pull-right">
           <div style="height:3em">
           <%= link_to "Home ",       root_path %>

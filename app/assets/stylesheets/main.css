@@ -130,6 +130,14 @@ float: left;
 
 }
 
+.vcenter-2 {
+
+  display: inline-block;
+  vertical-align: right;
+  float: right;
+
+}
+
 .col-lg-4 {
 
   margin-left: auto;
@@ -186,13 +194,15 @@ body {
 
 .banner {
 
-  text-align: center;
+
   float: none;
   color: #90050a;
 
 }
 
-.banner-2 {
+
+
+.banner h3 {
 
   color: #fb8720;
 }
