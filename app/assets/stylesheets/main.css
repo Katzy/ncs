@@ -212,8 +212,8 @@ body {
 
 .visible-xs .img-circle  {
 
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 3em;
+  max-width: 3em;
 
 }
 
