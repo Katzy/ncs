@@ -201,6 +201,15 @@ body {
   padding-bottom: 50px;
 
 }
+
+.container-brackets {
+
+  padding-left: 5em;
+  padding-right: 5em;
+  font-size: 2em;
+
+}
+
 .container li {
 
   padding-top: 0;
