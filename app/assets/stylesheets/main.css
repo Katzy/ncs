@@ -210,6 +210,12 @@ body {
 
 }
 
+.container-brackets .visible-xs {
+
+  font-size: 12px;
+
+}
+
 .container li {
 
   padding-top: 0;
