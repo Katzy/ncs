@@ -212,7 +212,9 @@ body {
 
 .visible-xs .brackets {
 
-  font-size: 12px;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 14px;
 
 }
 
@@ -430,7 +432,7 @@ table {
 
   content: '';
   display: inline-block;
-  width: 95%;
+  width: 98%;
 
 }
 
