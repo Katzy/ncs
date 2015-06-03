@@ -1,28 +1,6 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+NCSwrestling is a website designed to be a hub for the North Coast Section Wrestling Tournament in California.
+Coaches & league reps use this site to enter their wrestler information.  The tournament officials use this data to seed the wrestlers 1-8.  The tournament director exports .csv files to proprietary enterprise software.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+DATABASE -  Postgres
