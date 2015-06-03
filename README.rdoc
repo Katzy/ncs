@@ -1,6 +1,6 @@
 == README
 
 NCSwrestling is a website designed to be a hub for the North Coast Section Wrestling Tournament in California.
-Coaches & league reps use this site to enter their wrestler information.  The tournament officials use this data to seed the wrestlers 1-8.  The tournament director exports .csv files to proprietary enterprise software.
+Coaches & league reps use this site to enter their wrestler information.  The tournament officials use this data to seed the wrestlers 1-8.  The tournament director exports .csv files to proprietary enterprise software.  The tournament is updated after each round of wrestling and fans can view updated results / team scores by clicking on the links on the home page.
 
 DATABASE -  Postgres
